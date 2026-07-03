@@ -30,6 +30,7 @@ const Projects = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
+  const [projectTypeFilter, setProjectTypeFilter] = useState("all");
 
   const categories = [
     "all",
@@ -46,24 +47,37 @@ const Projects = () => {
     "electron",
   ];
 
-  const filteredProjects = projects.filter((project) => {
-    const searchText = search.toLowerCase().trim();
+  const filteredProjects = projects
+    .filter((project) => {
+      const searchText = search.toLowerCase().trim();
 
-    // SEARCH
-    const matchSearch =
-      project.title?.toLowerCase().includes(searchText) ||
-      project.description?.toLowerCase().includes(searchText) ||
-      project.stack?.some((tech) => tech.toLowerCase().includes(searchText));
+      // SEARCH
+      const matchSearch =
+        project.title?.toLowerCase().includes(searchText) ||
+        project.description?.toLowerCase().includes(searchText) ||
+        project.stack?.some((tech) => tech.toLowerCase().includes(searchText));
 
-    // CATEGORY
-    const matchCategory =
-      filter === "all" ||
-      project.stack?.some((tech) =>
-        tech.toLowerCase().includes(filter.toLowerCase())
-      );
+      // CATEGORY
+      const matchCategory =
+        filter === "all" ||
+        project.stack?.some((tech) =>
+          tech.toLowerCase().includes(filter.toLowerCase())
+        );
 
-    return matchSearch && matchCategory;
-  });
+      // PROJECT TYPE
+      const isCompany = project.type === "company";
+      const matchProjectType =
+        projectTypeFilter === "all" ||
+        (projectTypeFilter === "company" && isCompany) ||
+        (projectTypeFilter === "personal" && !isCompany);
+
+      return matchSearch && matchCategory && matchProjectType;
+    })
+    .sort((a, b) => {
+      const aIsCompany = a.type === "company" ? 1 : 0;
+      const bIsCompany = b.type === "company" ? 1 : 0;
+      return bIsCompany - aIsCompany;
+    });
 
   return (
     <section className="py-24 px-6 relative overflow-hidden bg-transparent min-h-screen">
@@ -100,6 +114,41 @@ const Projects = () => {
 
         {/* Search Control */}
         <SearchBar value={search} onChange={(e) => setSearch(e.target.value)} />
+
+        {/* Project Source Filter Toggles */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-8 select-none">
+          <button
+            onClick={() => setProjectTypeFilter("all")}
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-305 border cursor-pointer ${
+              projectTypeFilter === "all"
+                ? "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-500/20"
+                : "bg-[#ffffff]/80 dark:bg-[#160f38]/80 text-slate-700 dark:text-[#beafdc] border-slate-200 dark:border-[#2d1e5a] hover:border-indigo-500/50 dark:hover:border-indigo-500/50"
+            }`}
+          >
+            All Work ({projects.length})
+          </button>
+          <button
+            onClick={() => setProjectTypeFilter("company")}
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-305 border cursor-pointer flex items-center gap-2 ${
+              projectTypeFilter === "company"
+                ? "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-500/20"
+                : "bg-[#ffffff]/80 dark:bg-[#160f38]/80 text-slate-700 dark:text-[#beafdc] border-slate-200 dark:border-[#2d1e5a] hover:border-indigo-500/50 dark:hover:border-indigo-500/50"
+            }`}
+          >
+            <span className={`w-1.5 h-1.5 rounded-full ${projectTypeFilter === "company" ? "bg-white animate-pulse" : "bg-indigo-500"}`} />
+            Company Contributions ({projects.filter((p) => p.type === "company").length})
+          </button>
+          <button
+            onClick={() => setProjectTypeFilter("personal")}
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-305 border cursor-pointer ${
+              projectTypeFilter === "personal"
+                ? "bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-500/20"
+                : "bg-[#ffffff]/80 dark:bg-[#160f38]/80 text-slate-700 dark:text-[#beafdc] border-slate-200 dark:border-[#2d1e5a] hover:border-indigo-500/50 dark:hover:border-indigo-500/50"
+            }`}
+          >
+            Personal Projects ({projects.filter((p) => p.type !== "company").length})
+          </button>
+        </div>
 
         {/* Filter Selection Chips (Scrollable horizontal row) */}
         <div className="w-full overflow-x-auto no-scrollbar pb-6 mb-12 select-none">

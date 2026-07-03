@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
     ) {
       return;
     }
-    navigate(`/projects/${project.id}`, { state: { from: "projects" } });
+    navigate(`/projects/${project.slug}`, { state: { from: "projects" } });
   };
 
   return (
@@ -63,12 +63,20 @@ const ProjectCard = ({ project }) => {
 
       {/* Content Area */}
       <div className="flex flex-col flex-grow p-6 space-y-4">
-        {/* Category Tag */}
-        {project.category && (
-          <span className="inline-block text-[10px] font-extrabold tracking-[0.15em] uppercase text-indigo-500 dark:text-indigo-400 select-none">
-            {project.category}
-          </span>
-        )}
+        {/* Category Tag & Type Badge */}
+        <div className="flex items-center justify-between gap-2">
+          {project.category && (
+            <span className="inline-block text-[10px] font-extrabold tracking-[0.15em] uppercase text-indigo-500 dark:text-indigo-400 select-none">
+              {project.category}
+            </span>
+          )}
+          {project.type === "company" && (
+            <span className="inline-flex items-center gap-1 text-[9px] font-extrabold tracking-[0.05em] uppercase bg-indigo-500/10 text-indigo-650 dark:bg-indigo-500/20 dark:text-indigo-300 border border-indigo-500/20 dark:border-indigo-500/30 px-2 py-0.5 rounded-full select-none shadow-sm">
+              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
+              Company
+            </span>
+          )}
+        </div>
 
         {/* Title */}
         <h3 className="text-xl font-black text-slate-900 dark:text-[#f0ebff] group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors leading-snug">
@@ -123,7 +131,7 @@ const ProjectCard = ({ project }) => {
             {/* Workspace details link */}
             <button
               onClick={() => {
-                navigate(`/projects/${project.id}`, { state: { from: "projects" } });
+                navigate(`/projects/${project.slug}`, { state: { from: "projects" } });
               }}
               className="font-bold text-indigo-500 hover:text-indigo-650 dark:text-indigo-400 dark:hover:text-indigo-300 group/link flex items-center gap-1 bg-transparent border-0 cursor-pointer"
             >
@@ -141,10 +149,10 @@ const ProjectCard = ({ project }) => {
                   target="_blank"
                   rel="noreferrer"
                   className="group/live inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl text-[10px] font-extrabold transition-all duration-300 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-[0_4px_12px_rgba(99,102,241,0.2)] hover:shadow-[0_8px_20px_rgba(168,85,247,0.35)] hover:scale-[1.03] active:scale-[0.97]"
-                  title="Launch Live Demo"
+                  title={project.type === "company" ? "Visit Live Site" : "Launch Live Demo"}
                 >
                   <FiExternalLink className="text-[11px] group-hover/live:translate-x-0.5 group-hover/live:-translate-y-0.5 transition-transform duration-300" />
-                  <span>Live Demo</span>
+                  <span>{project.type === "company" ? "Live Site" : "Live Demo"}</span>
                 </a>
               )}
 

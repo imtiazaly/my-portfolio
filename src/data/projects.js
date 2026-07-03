@@ -26,7 +26,10 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/CampaignOS-Smart-Campaign-Management-System",
-    "image": "/images/projects/campaignOs.JPG"
+    "image": "/images/projects/campaign-os/campaignOs.JPG",
+    "images": [
+      "/images/projects/campaign-os/campaignOs.JPG"
+    ]
   },
   {
     "id": 2,
@@ -52,7 +55,10 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/FileFusion-Multi-Cloud-Storage-App",
-    "image": "/images/projects/FileFusion.png"
+    "image": "/images/projects/file-fusion/FileFusion.png",
+    "images": [
+      "/images/projects/file-fusion/FileFusion.png"
+    ]
   },
   {
     "id": 3,
@@ -76,7 +82,10 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/Shoba-Nazam-v2",
-    "image": "/images/projects/Shoba Nazam.png"
+    "image": "/images/projects/shoba-nazam-v2/Shoba Nazam.png",
+    "images": [
+      "/images/projects/shoba-nazam-v2/Shoba Nazam.png"
+    ]
   },
   {
     "id": 4,
@@ -99,7 +108,10 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/LaraVue-Portal",
-    "image": "/images/projects/LaraVue Portal.png"
+    "image": "/images/projects/laravue-portal/LaraVue Portal.png",
+    "images": [
+      "/images/projects/laravue-portal/LaraVue Portal.png"
+    ]
   },
   {
     "id": 5,
@@ -123,7 +135,13 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/AuraCart-Premium-E-Commerce-Platform/",
     "github": "https://github.com/Imtiaz-Ali17314/AuraCart-Premium-E-Commerce-Platform",
-    "image": "/images/projects/aura-cart.png"
+    "image": "/images/projects/auracart/aura-cart.png",
+    "images": [
+      "/images/projects/auracart/aura-cart.png",
+      "/images/projects/auracart/aura-cart1.png",
+      "/images/projects/auracart/aura-cart2.png",
+      "/images/projects/auracart/aura-cart3.png"
+    ]
   },
   {
     "id": 6,
@@ -147,7 +165,10 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/Computer-Performance-Tracker-Electron-Js-Desktop-App",
-    "image": "/images/projects/Computer Performance Tracker.png"
+    "image": "/images/projects/computer-performance-tracker/Computer Performance Tracker.png",
+    "images": [
+      "/images/projects/computer-performance-tracker/Computer Performance Tracker.png"
+    ]
   },
   {
     "id": 7,
@@ -170,7 +191,14 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Connectify-Modern-Social-Feed",
     "github": "https://github.com/Imtiaz-Ali17314/Connectify-Modern-Social-Feed",
-    "image": "/images/projects/Connectify.png"
+    "image": "/images/projects/connectify/Connectify.png",
+    "images": [
+      "/images/projects/connectify/Connectify.png",
+      "/images/projects/connectify/Connectify1.png",
+      "/images/projects/connectify/Connectify2.png",
+      "/images/projects/connectify/Connectify3.png",
+      "/images/projects/connectify/Connectify4.png"
+    ]
   },
   {
     "id": 8,
@@ -193,7 +221,10 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/Learn-Vue-Js-Practice-App",
-    "image": "/images/projects/Learn-Vue-Js-Practice-App.JPG"
+    "image": "/images/projects/learn-vue-js-practice-app/Learn-Vue-Js-Practice-App.JPG",
+    "images": [
+      "/images/projects/learn-vue-js-practice-app/Learn-Vue-Js-Practice-App.JPG"
+    ]
   },
   {
     "id": 9,
@@ -215,7 +246,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Spotify-Clone/",
     "github": "https://github.com/Imtiaz-Ali17314/Spotify-Clone",
-    "image": "/images/projects/Spotify-Clone.png"
+    "image": "/images/projects/spotify-web-player-clone/Spotify-Clone.png",
+    "images": [
+      "/images/projects/spotify-web-player-clone/Spotify-Clone.png"
+    ]
   },
   {
     "id": 10,
@@ -239,7 +273,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/ApexCrypt-OS/",
     "github": "https://github.com/Imtiaz-Ali17314/ApexCrypt-OS",
-    "image": "/images/projects/ApexCrypt OS.png"
+    "image": "/images/projects/apex-crypt-os/ApexCrypt OS.png",
+    "images": [
+      "/images/projects/apex-crypt-os/ApexCrypt OS.png"
+    ]
   },
   {
     "id": 11,
@@ -262,7 +299,13 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/My-Portfolio-Website/",
     "github": "https://github.com/Imtiaz-Ali17314/My-Portfolio-Website",
-    "image": "/images/projects/My Portfolio Website.png"
+    "image": "/images/projects/my-portfolio-website/My Portfolio Website.png",
+    "images": [
+      "/images/projects/my-portfolio-website/My Portfolio Website.png",
+      "/images/projects/my-portfolio-website/My Portfolio Website1.png",
+      "/images/projects/my-portfolio-website/My Portfolio Website2.png",
+      "/images/projects/my-portfolio-website/My Portfolio Website3.png",
+    ]
   },
   {
     "id": 12,
@@ -285,7 +328,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Portfolio-Website/",
     "github": "https://github.com/Imtiaz-Ali17314/Portfolio-Website",
-    "image": "/images/projects/Portfolio-Website.png"
+    "image": "/images/projects/personal-developer-portfolio/Portfolio-Website.png",
+    "images": [
+      "/images/projects/personal-developer-portfolio/Portfolio-Website.png"
+    ]
   },
   {
     "id": 13,
@@ -308,7 +354,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/DevPortfolio-Ranker/",
     "github": "https://github.com/Imtiaz-Ali17314/DevPortfolio-Ranker",
-    "image": "/images/projects/DevPortfolio-Ranker.png"
+    "image": "/images/projects/dev-portfolio-ranker/DevPortfolio-Ranker.png",
+    "images": [
+      "/images/projects/dev-portfolio-ranker/DevPortfolio-Ranker.png"
+    ]
   },
   {
     "id": 14,
@@ -331,7 +380,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/QuizMind-Study-Hub/",
     "github": "https://github.com/Imtiaz-Ali17314/QuizMind-Study-Hub",
-    "image": "/images/projects/Quiz‑Mind.png"
+    "image": "/images/projects/quiz-mind/Quiz‑Mind.png",
+    "images": [
+      "/images/projects/quiz-mind/Quiz‑Mind.png"
+    ]
   },
   {
     "id": 15,
@@ -355,7 +407,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/SpeakFlow-Speech-Studio/",
     "github": "https://github.com/Imtiaz-Ali17314/SpeakFlow-Speech-Studio",
-    "image": "/images/projects/SpeakFlow.png"
+    "image": "/images/projects/speakflow/SpeakFlow.png",
+    "images": [
+      "/images/projects/speakflow/SpeakFlow.png"
+    ]
   },
   {
     "id": 16,
@@ -379,7 +434,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Lumina-Developers-Smart-Image-Workspace-and-Live-Asset-Studio/",
     "github": "https://github.com/Imtiaz-Ali17314/Lumina-Developers-Smart-Image-Workspace-and-Live-Asset-Studio",
-    "image": "/images/projects/Lumina.JPG"
+    "image": "/images/projects/lumina-image-workspace/Lumina.JPG",
+    "images": [
+      "/images/projects/lumina-image-workspace/Lumina.JPG"
+    ]
   },
   {
     "id": 17,
@@ -402,7 +460,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/FLUX-currency-converter/",
     "github": "https://github.com/Imtiaz-Ali17314/FLUX-currency-converter",
-    "image": "/images/projects/FLUX.png"
+    "image": "/images/projects/flux-currency/FLUX.png",
+    "images": [
+      "/images/projects/flux-currency/FLUX.png"
+    ]
   },
   {
     "id": 18,
@@ -425,7 +486,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/AtmosLux-weather-App/",
     "github": "https://github.com/Imtiaz-Ali17314/AtmosLux-weather-App",
-    "image": "/images/projects/AtmosLux.png"
+    "image": "/images/projects/atmoslux/AtmosLux.png",
+    "images": [
+      "/images/projects/atmoslux/AtmosLux.png"
+    ]
   },
   {
     "id": 19,
@@ -448,7 +512,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/ZENITH-todo-app-react-project/",
     "github": "https://github.com/Imtiaz-Ali17314/ZENITH-todo-app-react-project",
-    "image": "/images/projects/Zenith Mission Control.png"
+    "image": "/images/projects/zenith-mission-control/Zenith Mission Control.png",
+    "images": [
+      "/images/projects/zenith-mission-control/Zenith Mission Control.png"
+    ]
   },
   {
     "id": 20,
@@ -470,7 +537,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/STELLAR-TASKS-to-do-list-app/",
     "github": "https://github.com/Imtiaz-Ali17314/STELLAR-TASKS-to-do-list-app",
-    "image": "/images/projects/Stellar Tasks.png"
+    "image": "/images/projects/stellar-tasks/Stellar Tasks.png",
+    "images": [
+      "/images/projects/stellar-tasks/Stellar Tasks.png"
+    ]
   },
   {
     "id": 21,
@@ -492,7 +562,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/CIPHER-VAULT-random-password-generator/",
     "github": "https://github.com/Imtiaz-Ali17314/CIPHER-VAULT-random-password-generator",
-    "image": "/images/projects/CIPHER VAULT.png"
+    "image": "/images/projects/cipher-vault/CIPHER VAULT.png",
+    "images": [
+      "/images/projects/cipher-vault/CIPHER VAULT.png"
+    ]
   },
   {
     "id": 22,
@@ -514,7 +587,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Clock-React-Project/",
     "github": "https://github.com/Imtiaz-Ali17314/Clock-React-Project",
-    "image": "/images/projects/Chronos Nebula.png"
+    "image": "/images/projects/chronos-nebula/Chronos Nebula.png",
+    "images": [
+      "/images/projects/chronos-nebula/Chronos Nebula.png"
+    ]
   },
   {
     "id": 23,
@@ -536,7 +612,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/QuantumCalc-3D-Immersive-Calculator-React-Project/",
     "github": "https://github.com/Imtiaz-Ali17314/QuantumCalc-3D-Immersive-Calculator-React-Project",
-    "image": "/images/projects/QuantumCalc.png"
+    "image": "/images/projects/quantum-calc/QuantumCalc.png",
+    "images": [
+      "/images/projects/quantum-calc/QuantumCalc.png"
+    ]
   },
   {
     "id": 24,
@@ -557,7 +636,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/ChronosAnalytics-Precision-Age-Analytics-Dashboard/",
     "github": "https://github.com/Imtiaz-Ali17314/ChronosAnalytics-Precision-Age-Analytics-Dashboard",
-    "image": "/images/projects/ChronosAnalytics.png"
+    "image": "/images/projects/chronos-analytics/ChronosAnalytics.png",
+    "images": [
+      "/images/projects/chronos-analytics/ChronosAnalytics.png"
+    ]
   },
   {
     "id": 25,
@@ -578,7 +660,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Digital-Clock",
     "github": "https://github.com/Imtiaz-Ali17314/Digital-Clock",
-    "image": "/images/projects/Digital Clock Pro.png"
+    "image": "/images/projects/digital-clock-pro/Digital Clock Pro.png",
+    "images": [
+      "/images/projects/digital-clock-pro/Digital Clock Pro.png"
+    ]
   },
   {
     "id": 26,
@@ -599,7 +684,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Rock-Paper-Scissors-Game/",
     "github": "https://github.com/Imtiaz-Ali17314/Rock-Paper-Scissors-Game",
-    "image": "/images/projects/Rock Paper Scissors Premium.png"
+    "image": "/images/projects/rock-paper-scissors-premium/Rock Paper Scissors Premium.png",
+    "images": [
+      "/images/projects/rock-paper-scissors-premium/Rock Paper Scissors Premium.png"
+    ]
   },
   {
     "id": 27,
@@ -620,7 +708,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Tic-Tac-Toe-game/",
     "github": "https://github.com/Imtiaz-Ali17314/Tic-Tac-Toe-game",
-    "image": "/images/projects/Tic-Tac-Toe Game.png"
+    "image": "/images/projects/tic-tac-toe-game/Tic-Tac-Toe Game.png",
+    "images": [
+      "/images/projects/tic-tac-toe-game/Tic-Tac-Toe Game.png"
+    ]
   },
   {
     "id": 28,
@@ -640,7 +731,10 @@ const projects = [
     ],
     "live": "https://imtiaz-ali17314.github.io/Amazon-Homepage-Clone-css-project/",
     "github": "https://github.com/Imtiaz-Ali17314/Amazon-Homepage-Clone-css-project",
-    "image": "/images/projects/Amazon Homepage Clone.png"
+    "image": "/images/projects/amazon-homepage-clone/Amazon Homepage Clone.png",
+    "images": [
+      "/images/projects/amazon-homepage-clone/Amazon Homepage Clone.png"
+    ]
   },
   {
     "id": 29,
@@ -660,7 +754,273 @@ const projects = [
     ],
     "live": "#",
     "github": "https://github.com/Imtiaz-Ali17314/flexbox-project-css",
-    "image": "/images/projects/Flexbox Project Layout.JPG"
+    "image": "/images/projects/flexbox-project-layout/Flexbox Project Layout.JPG",
+    "images": [
+      "/images/projects/flexbox-project-layout/Flexbox Project Layout.JPG"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "AI-Powered Multi-Tenant Clinical Management Platform",
+    "slug": "clinical-management-platform",
+    "category": "Full Stack",
+    "type": "company",
+    "stack": [
+      "React.js",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Sequelize ORM",
+      "OpenAI API",
+      "Microsoft Graph API",
+      "Redux Toolkit",
+      "IndexedDB"
+    ],
+    "description": "An enterprise-grade, multi-tenant clinical workflow and scheduling system designed to optimize doctor-patient consultations, clinic administration, and pharmacy fulfillment with integrated AI features.",
+    "features": [
+      "Speech-to-SOAP AI pipeline transcribing audio (Whisper-1) and generating structured clinical notes (GPT-4-turbo)",
+      "Bi-directional Microsoft Bookings sync using MSAL and Microsoft Graph API",
+      "Decentralized, encrypted patient-staff support chat powered by the Matrix Protocol",
+      "High-performance client-side scheduling dashboard backed by IndexedDB and Redux state management",
+      "HIPAA-compliant historical change auditing through relational database event logs",
+      "Dedicated multi-tenant portals for Admins, Providers, Patients, Staff, and Pharmacists"
+    ],
+    "live": "",
+    "github": "",
+    "image": "/images/projects/clinical-management-platform/medical-home1.webp",
+    "images": [
+      "/images/projects/clinical-management-platform/medical-home1.webp",
+      "/images/projects/clinical-management-platform/medical-home2.webp",
+      "/images/projects/clinical-management-platform/medical-home3.webp",
+      "/images/projects/clinical-management-platform/medical-home4.webp",
+      "/images/projects/clinical-management-platform/medical-home5.webp",
+      "/images/projects/clinical-management-platform/medical-home6.webp",
+      "/images/projects/clinical-management-platform/medical-home7.webp",
+      "/images/projects/clinical-management-platform/medical-home8.webp",
+      "/images/projects/clinical-management-platform/medical-home9.webp",
+      "/images/projects/clinical-management-platform/medical-home10.webp",
+      "/images/projects/clinical-management-platform/medical-home11.webp",
+      "/images/projects/clinical-management-platform/medical-home12.webp",
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Tracklo — SaaS Employee Productivity & Task Management Portal",
+    "slug": "tracklo-saas",
+    "category": "Full Stack",
+    "type": "company",
+    "stack": [
+      "Laravel",
+      "Vue.js 3",
+      "Pinia",
+      "WebSockets (Pusher)",
+      "Laravel Echo",
+      "vis-timeline",
+      "vuedraggable",
+      "IndexedDB",
+      "Google OAuth"
+    ],
+    "description": "A real-time team collaboration, agile task coordination, and employee productivity SaaS featuring Gantt charts, interactive task boards, and background telemetry logs.",
+    "features": [
+      "Real-time task synchronization across clients using Pusher and Laravel Echo WebSockets",
+      "Agile Kanban board with interactive drag-and-drop state adjustments utilizing vuedraggable",
+      "Dynamic Gantt chart visualizations tracking project schedules and developer time logs with vis-timeline",
+      "Persistent state management utilizing Pinia with Dexie IndexedDB local caching",
+      "Comprehensive telemetry APIs reporting member active/idle intervals and time summary distributions"
+    ],
+    "live": "https://tracklo.net/",
+    "github": "",
+    "image": "/images/projects/tracklo-saas/tracklo1.webp",
+    "images": [
+      "/images/projects/tracklo-saas/tracklo1.webp",
+      "/images/projects/tracklo-saas/tracklo2.webp",
+      "/images/projects/tracklo-saas/tracklo3.webp",
+      "/images/projects/tracklo-saas/tracklo5.webp",
+      "/images/projects/tracklo-saas/tracklo6.webp",
+      "/images/projects/tracklo-saas/tracklo7.webp",
+      "/images/projects/tracklo-saas/tracklo8.webp",
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Tracklo Tracker — Cross-Platform Electron Desktop Time Tracker",
+    "slug": "tracklo-tracker",
+    "category": "Desktop App",
+    "type": "company",
+    "stack": [
+      "Electron",
+      "electron-vite",
+      "Vue.js 3",
+      "Native OS APIs",
+      "node-global-key-listener",
+      "Auto-Launch",
+      "Electron Store",
+      "electron-updater"
+    ],
+    "description": "The desktop companion client for the Tracklo platform, running locally on user workstations to log application focus, active times, and telemetry parameters.",
+    "features": [
+      "Keystroke and mouse event activity tracking utilizing native global key listener scripts",
+      "Active window tracking querying operating system process APIs to log work context titles",
+      "Reliable background synchronization with offline storage and Axios retry strategies",
+      "Automatic software updates and distributions using electron-builder and electron-updater",
+      "Silent startup utility running on boot and saving custom options in persistent JSON stores"
+    ],
+    "live": "https://tracklo.net/download-tracklo",
+    "github": "",
+    "image": "/images/projects/tracklo-tracker/work-tracker.png",
+    "images": [
+      "/images/projects/tracklo-tracker/work-tracker.png",
+      "/images/projects/tracklo-tracker/work-tracker2.png",
+      "/images/projects/tracklo-tracker/work-tracker3.png",
+      "/images/projects/tracklo-tracker/work-tracker4.png",
+    ]
+  },
+  {
+    "id": 33,
+    "title": "IoT-Enabled Smart Booking & Physical Access Control System",
+    "slug": "smart-booking-access-control",
+    "category": "Full Stack",
+    "type": "company",
+    "stack": [
+      "Laravel",
+      "Vue.js 3",
+      "Inertia.js",
+      "PHP",
+      "IoT APIs (Brivo)",
+      "REST APIs (Mindbody)",
+      "Laravel Queues",
+      "Redis",
+      "Tailwind CSS"
+    ],
+    "description": "An automated enterprise IoT integration system bridging scheduling platforms with cloud-based physical access locks, automatically issuing and revoking digital door credentials based on booking states.",
+    "features": [
+      "Automated physical access credentials provisioning 20 minutes before booking start times via Brivo API",
+      "Event-driven attendee arrival check-in triggered by physical card swipes and door unlock signals",
+      "Resilient background queue pipeline utilizing Laravel Jobs with UUID-based cancellation mechanics",
+      "Unified single-page client dashboards utilizing Vue 3, Inertia.js, and Tailwind CSS",
+      "API authorization token caching with custom TTL safety margins to prevent rate-limit throttling"
+    ],
+    "live": "",
+    "github": "",
+    "image": "/images/projects/smart-booking-access-control/teego4.png",
+    "images": [
+      "/images/projects/smart-booking-access-control/teego4.png",
+      "/images/projects/smart-booking-access-control/teego1.png",
+      "/images/projects/smart-booking-access-control/teego2.png",
+      "/images/projects/smart-booking-access-control/teego3.png",
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Softleed — Official Agency Web Platform & Portfolio",
+    "slug": "softleed-web",
+    "category": "Full Stack",
+    "type": "company",
+    "stack": [
+      "Laravel",
+      "Tailwind CSS v4",
+      "Vite",
+      "PHP",
+      "Google reCAPTCHA",
+      "Blade Templating",
+      "SMTP Services"
+    ],
+    "description": "The official corporate marketing and portfolio web application for the Softleed agency, designed for high-performance lead generation and case study showcases.",
+    "features": [
+      "Lightweight styling framework utilizing the cutting-edge Tailwind CSS v4 engine",
+      "Secure contact endpoints protected by Google reCAPTCHA siteverify integration",
+      "Automatic lead tracking and database query logging via Laravel Eloquent ORM",
+      "Instant email notifications dispatched to admins through custom Laravel SMTP Mailables",
+      "Modular Blade layout structure for seamless case study and review additions"
+    ],
+    "live": "https://softleed.com/",
+    "github": "",
+    "image": "/images/projects/softleed-web/softleed1.png",
+    "images": [
+      "/images/projects/softleed-web/softleed1.png",
+      "/images/projects/softleed-web/softleed2.png",
+      "/images/projects/softleed-web/softleed3.png",
+      "/images/projects/softleed-web/softleed4.png",
+      "/images/projects/softleed-web/softleed5.png",
+      "/images/projects/softleed-web/softleed6.png",
+      "/images/projects/softleed-web/softleed7.png",
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Tracklo QA — Automated End-to-End Testing Framework",
+    "slug": "tracklo-qa",
+    "category": "QA / Automation",
+    "type": "company",
+    "stack": [
+      "Playwright",
+      "JavaScript",
+      "Node.js",
+      "Page Object Model (POM)",
+      "E2E Testing",
+      "Module Aliases",
+      "Visual Regressions"
+    ],
+    "description": "A comprehensive end-to-end automated testing architecture engineered to execute non-flaky test runs, verify user permissions, and test platform stability under high concurrency.",
+    "features": [
+      "Page Object Model (POM) structure using module aliases to isolate UI selectors from logic",
+      "Automated test coverage for authentication, Kanban boards, leaves, settings, and workspace invites",
+      "Parallel multi-browser project execution (Chromium & Chrome) with custom fail-safe configurations",
+      "Automated debugging capturing trace files, screenshots, and visual video logs on pipeline failures",
+      "Emulated hardware controls managing clipboard access and security validations on browsers"
+    ],
+    "live": "",
+    "github": "",
+    "image": "/images/projects/tracklo-saas/tracklo3.webp",
+    "images": [
+      "/images/projects/tracklo-saas/tracklo1.webp",
+      "/images/projects/tracklo-saas/tracklo2.webp",
+      "/images/projects/tracklo-saas/tracklo3.webp",
+      "/images/projects/tracklo-saas/tracklo5.webp",
+      "/images/projects/tracklo-saas/tracklo6.webp",
+      "/images/projects/tracklo-saas/tracklo7.webp",
+      "/images/projects/tracklo-saas/tracklo8.webp",
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Softleed Dashboard — Test Case & Quality Assurance Management Portal",
+    "slug": "softleed-dashboard",
+    "category": "Full Stack",
+    "type": "company",
+    "stack": [
+      "Laravel",
+      "Vue.js 3",
+      "Vue Router",
+      "Bootstrap 5",
+      "ApexCharts",
+      "TinyMCE",
+      "FullCalendar",
+      "MySQL"
+    ],
+    "description": "An internal project, document, and test case management dashboard designed to track software development quality assurance cycles, test coverage, and outcomes.",
+    "features": [
+      "Single Page Application (SPA) dashboard loading dynamic views on a unified Blade master layout",
+      "Interactive data visualizations of pass/fail execution ratios utilizing ApexCharts and Chart.js",
+      "Robust test case creation and categorization engine filtered by Document, Version, and Feature",
+      "Inline rich-text formatting for complex test steps and expected results via TinyMCE integration",
+      "Unified authentication middleware guards to protect proprietary product coverage metrics"
+    ],
+    "live": "",
+    "github": "",
+    "image": "/images/projects/softleed-dashboard/dashboard1.png",
+    "images": [
+      "/images/projects/softleed-dashboard/dashboard1.png",
+      "/images/projects/softleed-dashboard/dashboard2.png",
+      "/images/projects/softleed-dashboard/dashboard3.png",
+      "/images/projects/softleed-dashboard/dashboard4.png",
+      "/images/projects/softleed-dashboard/dashboard5.png",
+      "/images/projects/softleed-dashboard/dashboard6.png",
+      "/images/projects/softleed-dashboard/dashboard7.png",
+      "/images/projects/softleed-dashboard/dashboard8.png",
+      "/images/projects/softleed-dashboard/dashboard9.png",
+    ]
   }
 ];
 
