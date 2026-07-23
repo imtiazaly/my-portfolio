@@ -15,8 +15,8 @@ const MainLayout = () => {
 
   // Dynamic SEO Page Resolution
   useEffect(() => {
-    let title = "Imtiaz Ali | Junior Full Stack Developer";
-    let desc = "Professional developer portfolio of Imtiaz Ali. Junior Full Stack Developer at Softleed Company, showcasing a comprehensive collection of 30+ personal applications.";
+    let title = "Imtiaz Ali | Full Stack Developer";
+    let desc = "Professional developer portfolio of Imtiaz Ali. Full Stack Developer at Softleed Company, showcasing a comprehensive collection of 30+ personal applications.";
     let keywords = "Imtiaz Ali, Full Stack Developer, Software Engineer, Portfolio, Softleed, React, Vue, Laravel, Electron.js, Pakistan, Tailwind CSS, 30 Projects";
     let image = "/images/about/portfolio.png";
 
