@@ -696,8 +696,8 @@ const projects = [
   },
   {
     id: 30,
-    title: "AI-Powered Multi-Tenant Clinical Management Platform",
-    slug: "clinical-management-platform",
+    title: "MediConnect — AI-Powered Clinical Management Platform",
+    slug: "mediconnect",
     category: "Full Stack",
     type: "company",
     stack: [
@@ -816,8 +816,8 @@ const projects = [
   },
   {
     id: 33,
-    title: "IoT-Enabled Smart Booking & Physical Access Control System",
-    slug: "smart-booking-access-control",
+    title: "BaySync — Automated Golf Bay Booking & Access Control System",
+    slug: "baysync",
     category: "Full Stack",
     type: "company",
     stack: [
