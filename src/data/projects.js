@@ -23,7 +23,7 @@ const projects = [
       "Automated Multi-Status Invoice Tracking system with instant PDF export capabilities",
       "Modern Glassmorphic Dark-Theme UI featuring responsive controls and subtle micro-interactions",
     ],
-    live: "https://propelio-ai-powered-client-proposal-invoice-ge-production.up.railway.app/proposals",
+    live: "https://propelio-ai-powered-client-proposal-invoice-ge-production.up.railway.app",
     github:
       "https://github.com/Imtiaz-Ali17314/Propelio---AI-Powered-Client-Proposal-Invoice-Generator",
     image: "/images/projects/propelio/propelio1.png",
