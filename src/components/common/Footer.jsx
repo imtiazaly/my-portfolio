@@ -86,7 +86,7 @@ const Footer = () => {
 
             <div className="flex gap-4 text-2xl pt-2">
               <a
-                href="https://github.com/Imtiaz-Ali17314"
+                href="https://github.com/imtiazaly"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub Profile"

@@ -173,7 +173,7 @@ const Contact = () => {
 
                 <div className="flex gap-2.5 w-full sm:w-auto">
                   <a
-                    href="https://github.com/Imtiaz-Ali17314"
+                    href="https://github.com/imtiazaly"
                     target="_blank"
                     rel="noreferrer"
                     className="flex-grow sm:flex-grow-0 inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-slate-100 dark:bg-slate-900 text-slate-650 dark:text-[#beafdc] border border-slate-200 dark:border-[#2d1e5a] hover:border-indigo-500/50 hover:bg-slate-200 dark:hover:bg-slate-800 dark:hover:text-white rounded-xl text-xs font-bold transition-all"

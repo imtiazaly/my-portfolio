@@ -1,7 +1,7 @@
 const socialLinks = [
   {
     name: "GitHub",
-    url: "https://github.com/Imtiaz-Ali17314",
+    url: "https://github.com/imtiazaly",
     icon: "github",
   },
 

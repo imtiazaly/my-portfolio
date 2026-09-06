@@ -95,7 +95,7 @@ Follow these steps to run the portfolio on your local machine:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/Imtiaz-Ali17314/my-portfolio.git
+git clone https://github.com/imtiazaly/my-portfolio.git
 cd my-portfolio
 ```
 

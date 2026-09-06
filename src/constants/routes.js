@@ -4,5 +4,5 @@ export const ROUTES = {
   PROJECT_DETAILS: "/projects/:slug",
   RESUME: "/resume",
   NOT_FOUND: "*",
-  BASE_URL_BASIC_PROJECTS: "https://imtiaz-ali17314.github.io"
+  BASE_URL_BASIC_PROJECTS: "https://imtiazaly.github.io"
 };

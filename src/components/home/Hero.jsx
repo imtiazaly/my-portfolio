@@ -170,7 +170,7 @@ const Hero = () => {
               <span className="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase select-none mr-2">socials:</span>
 
               <a
-                href="https://github.com/Imtiaz-Ali17314"
+                href="https://github.com/imtiazaly"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub Profile"

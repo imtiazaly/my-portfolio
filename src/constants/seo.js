@@ -24,7 +24,7 @@ export const SEO_CONFIG = {
   social: {
     twitter: "@yourhandle",
     linkedin: "https://linkedin.com/in/yourprofile",
-    github: "https://github.com/yourprofile",
+    github: "https://github.com/imtiazaly",
   },
 };
 
