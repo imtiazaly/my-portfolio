@@ -64,7 +64,6 @@ const Hero = () => {
       <div className="glow-node w-[350px] h-[350px] bg-cyan-400/15 left-[40%] bottom-[20%] rounded-full blur-[90px]" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10 w-full">
-
         {/* Left Side: Content Terminal Card */}
         <motion.div
           variants={containerVariants}
@@ -83,7 +82,9 @@ const Hero = () => {
 
             {/* Terminal Tab Label */}
             <div className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500 flex items-center gap-1.5 bg-white/20 dark:bg-[#121218]/40 border border-slate-200/30 dark:border-white/[0.04] px-3.5 py-1.5 rounded-lg shadow-sm">
-              <span className="text-indigo-500 dark:text-indigo-400 font-extrabold">&gt;_</span>
+              <span className="text-indigo-500 dark:text-indigo-400 font-extrabold">
+                &gt;_
+              </span>
               <span>index.jsx</span>
             </div>
 
@@ -102,21 +103,24 @@ const Hero = () => {
             </motion.div>
 
             {/* Name Title with Editor Syntax Highlighting */}
-            <motion.div
-              variants={childVariants}
-              className="space-y-2"
-            >
+            <motion.div variants={childVariants} className="space-y-2">
               <p className="text-slate-400 dark:text-slate-500 font-mono font-bold tracking-wide text-xs sm:text-sm uppercase select-none">
                 <span className="text-pink-500 dark:text-pink-400">const</span>{" "}
-                <span className="text-indigo-600 dark:text-indigo-400">developer</span>{" "}
+                <span className="text-indigo-600 dark:text-indigo-400">
+                  developer
+                </span>{" "}
                 <span className="text-slate-400 dark:text-slate-600">=</span>{" "}
-                <span className="text-amber-500 dark:text-amber-400">&#123;</span>
+                <span className="text-amber-500 dark:text-amber-400">
+                  &#123;
+                </span>
               </p>
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-none pl-4">
                 Imtiaz Ali
               </h1>
               <p className="text-slate-400 dark:text-slate-500 font-mono font-bold tracking-wide text-xs sm:text-sm pl-4 select-none">
-                <span className="text-amber-500 dark:text-amber-400">&#125;</span>
+                <span className="text-amber-500 dark:text-amber-400">
+                  &#125;
+                </span>
                 <span className="text-slate-400 dark:text-slate-600">;</span>
               </p>
             </motion.div>
@@ -135,8 +139,9 @@ const Hero = () => {
               variants={childVariants}
               className="max-w-xl text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base md:text-lg font-medium"
             >
-              Junior Full Stack Developer with 1 year of hands-on experience.
-              I build modern, responsive, and user focused web applications using React, Vue.js, Laravel, Node.js, and Electron.js.
+              Junior Full Stack Developer with 1 year of hands-on experience. I
+              build modern, responsive, and user focused web applications using
+              React, Vue.js, Laravel, Node.js, and Electron.js.
             </motion.p>
 
             {/* Call to Actions */}
@@ -167,7 +172,9 @@ const Hero = () => {
               variants={childVariants}
               className="flex items-center gap-4 pt-6 w-full border-t border-slate-200/40 dark:border-white/[0.04]"
             >
-              <span className="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase select-none mr-2">socials:</span>
+              <span className="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase select-none mr-2">
+                socials:
+              </span>
 
               <a
                 href="https://github.com/imtiazaly"
@@ -210,14 +217,12 @@ const Hero = () => {
         >
           {/* Main Wrapper with overflow-visible to show floating badges - Scaled up size constraints */}
           <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-[440px] p-4">
-
             {/* Sweeping neon border rotating wrapper */}
             <div className="glow-spin-container rounded-3xl p-[1px] shadow-2xl w-full">
               <div className="glow-spin-border rounded-3xl" />
 
               {/* Terminal Card inner container */}
               <div className="overflow-hidden w-full flex flex-col bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[28px] relative z-10 hover:shadow-[0_20px_50px_rgba(99,102,241,0.06)] dark:hover:shadow-[0_20px_50px_rgba(167,92,255,0.22)] hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all duration-500">
-
                 {/* Terminal Header */}
                 <div className="terminal-header px-5 py-3.5 flex items-center justify-between select-none">
                   <div className="flex items-center gap-1.5">
@@ -239,7 +244,7 @@ const Hero = () => {
 
                     {/* Profile Picture */}
                     <img
-                      src="/images/profile/profile.png"
+                      src="/images/profile/rtl2.png"
                       alt="Imtiaz Ali Profile"
                       className="w-full h-full object-cover rounded-2xl filter grayscale-[10%] contrast-[105%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                     />
@@ -274,7 +279,6 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
