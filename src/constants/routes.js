@@ -3,6 +3,7 @@ export const ROUTES = {
   PROJECTS: "/projects",
   PROJECT_DETAILS: "/projects/:slug",
   RESUME: "/resume",
+  ADMIN: "/admin",
   NOT_FOUND: "*",
-  BASE_URL_BASIC_PROJECTS: "https://imtiazaly.github.io"
+  BASE_URL_BASIC_PROJECTS: "https://imtiazaly.github.io",
 };
