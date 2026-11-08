@@ -16,6 +16,7 @@ import ProjectsManager from "./components/projects/ProjectsManager";
 import ExperienceManager from "./components/experience/ExperienceManager";
 import CertificationsManager from "./components/certifications/CertificationsManager";
 import SkillsManager from "./components/skills/SkillsManager";
+import ProfileManager from "./components/profile/ProfileManager";
 
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -227,17 +228,7 @@ const AdminDashboard = () => {
           {activeTab === "experience" && <ExperienceManager />}
           {activeTab === "certifications" && <CertificationsManager />}
           {activeTab === "skills" && <SkillsManager />}
-
-          {activeTab === "profile" && (
-            <div className="bg-[#140e34]/70 border border-[#26194d] rounded-2xl p-8 text-center text-slate-400">
-              <p className="font-bold text-white text-base mb-1">
-                Profile & Content Manager
-              </p>
-              <p className="text-xs text-[#beafdc]">
-                Will be connected in the next step!
-              </p>
-            </div>
-          )}
+          {activeTab === "profile" && <ProfileManager />}
         </div>
       </main>
     </div>
