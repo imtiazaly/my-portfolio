@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "order": 1,
+    "title": "Meta Full Stack Developer Specialization",
+    "issuer": "Coursera / Meta",
+    "issueDate": "2025",
+    "credentialId": "META-FS-2025-01",
+    "credentialUrl": "https://coursera.org",
+    "skills": ["React", "JavaScript", "HTML/CSS"],
+    "image": ""
+  }
+]

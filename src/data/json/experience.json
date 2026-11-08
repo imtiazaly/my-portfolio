@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "order": 1,
+    "role": "Full Stack Developer",
+    "company": "Softleed Company",
+    "period": "Sep 2025 - Present",
+    "description": "Building and maintaining production-grade web applications, interactive portals, and robust backend microservices.",
+    "highlights": [
+      "Developing scalable full-stack features using React, Vue, Laravel, and PostgreSQL/MySQL",
+      "Crafting premium, responsive user interfaces and optimizing REST API performance",
+      "Writing clean, modular, and well-tested code in collaborative agile pipelines"
+    ]
+  },
+  {
+    "id": 2,
+    "order": 2,
+    "role": "Full Stack Developer Intern",
+    "company": "Softleed Company",
+    "period": "Jul 2025 - Aug 2025",
+    "description": "Successfully completed a 2-month full-stack development internship focusing on industrial standards and workflows.",
+    "highlights": [
+      "Gained hands-on experience with MVC frameworks, routing, and database schema designs",
+      "Collaborated with senior engineers on feature implementations and bug fixes",
+      "Learned version control practices, Git workflows, and testing frameworks"
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+{
+  "hero": {
+    "name": "Imtiaz Ali",
+    "status": "Available for Freelance & Roles",
+    "typewriterWords": [
+      "Full Stack Developer",
+      "Laravel Developer",
+      "React & Vue Developer",
+      "Electron.js Developer"
+    ],
+    "pitch": "Junior Full Stack Developer with 1 year of hands-on experience. I build modern, responsive, and user focused web applications using React, Vue.js, Laravel, Node.js, and Electron.js."
+  },
+  "about": {
+    "heading": "Building clean web applications and responsive client-side user experiences.",
+    "bioParagraphs": [
+      "I am a Junior Full Stack Developer with professional experience building web features and client interfaces. Currently working at Softleed Company, I implement, maintain, and update responsive features across frontend frameworks, backend code, and relational databases.",
+      "My core development focus is on writing clean, modular code, building solid REST APIs, and collaborating with team members on client needs."
+    ],
+    "experienceValue": "1 Year",
+    "experienceLabel": "Experience",
+    "consoleLogs": [
+      "system initializing...",
+      "mounting campaign-os...",
+      "verifying stack.config... [OK]",
+      "establishing WebSockets... connected",
+      "building laravue-portal... ready",
+      "loading computer-tracker... Electron active",
+      "compiling files... 50+ projects verified",
+      "status check: active & ready"
+    ]
+  },
+  "achievements": [
+    {
+      "id": 1,
+      "title": "50+ Projects Built",
+      "description": "Developed projects ranging from beginner to advanced full stack web & mobile applications."
+    },
+    {
+      "id": 2,
+      "title": "Production Apps Delivered",
+      "description": "Worked on enterprise clinical systems, QA automation, and agency platforms."
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Evolution",
+      "description": "Progressed from core HTML/CSS/JS to React, Laravel, Vue, Node, and Electron."
+    },
+    {
+      "id": 4,
+      "title": "Cross Platform Engineer",
+      "description": "Hands-on experience developing web applications and desktop utility software."
+    }
+  ],
+  "journey": [
+    {
+      "phase": "01",
+      "year": "2020 - 2022",
+      "title": "Early Core Foundations",
+      "description": "Began my programming journey. Focused on building a strong basic foundation by learning C++, HTML, CSS, JavaScript, PHP, and MySQL."
+    },
+    {
+      "phase": "02",
+      "year": "2024 - 2025",
+      "title": "Serious Commitment & Revision",
+      "description": "Dedicated myself to modern web development. Created my GitHub workspace, revised core HTML, CSS, and JS, and explored modern Node.js ecosystems."
+    },
+    {
+      "phase": "03",
+      "year": "Mid 2025",
+      "title": "Softleed Turning Point",
+      "description": "Joined Softleed Company as an intern. Mastered modern full-stack web architectures (Laravel, Vue.js, and React.js) through hands-on projects."
+    },
+    {
+      "phase": "04",
+      "year": "2025 - Present",
+      "title": "Production Projects & Automation",
+      "description": "Contributed to healthcare systems and management dashboards. Advanced into QA automation testing (Playwright) and desktop shells (Electron.js)."
+    }
+  ],
+  "resume": {
+    "pdfPath": "/resume/imtiazsResume.pdf",
+    "lastUpdated": "June 2026",
+    "profileSummary": "Detail-oriented and results-driven Junior Full Stack Developer currently working at Softleed Company. Experienced in building, maintaining, and updating web applications using Laravel, React, Vue, and relational databases. Developed a diverse portfolio of 50+ projects including frontend interfaces, web workflows, and desktop utility applications."
+  },
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/imtiazaly",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/imtiaz-ali-79476a385/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:imtiazali80102@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}
