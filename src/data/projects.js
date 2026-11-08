@@ -1,3 +1,3 @@
-import projects from "./projects.json";
+import projects from "./json/projects.json";
 
 export default projects;
