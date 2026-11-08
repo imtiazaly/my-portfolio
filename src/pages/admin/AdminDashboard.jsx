@@ -128,9 +128,9 @@ const AdminDashboard = () => {
 
   // 2. Authenticated Dashboard Layout
   return (
-    <div className="min-h-screen bg-[#0b0819] text-slate-100 flex flex-col md:flex-row">
+    <div className="h-screen bg-[#0b0819] text-slate-100 flex flex-col md:flex-row overflow-hidden">
       {/* Sidebar Navigation */}
-      <aside className="w-full md:w-64 bg-[#120c2e] border-r border-[#26194d] flex flex-col shrink-0 select-none">
+      <aside className="w-full md:w-64 h-full bg-[#120c2e] border-r border-[#26194d] flex flex-col shrink-0 select-none">
         {/* Brand */}
         <div className="p-6 border-b border-[#26194d] flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -150,7 +150,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <nav className="p-4 space-y-1.5 flex-1">
+        <nav className="p-4 space-y-1.5 flex-1 overflow-y-auto">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -179,7 +179,7 @@ const AdminDashboard = () => {
         </nav>
 
         {/* Footer Actions */}
-        <div className="p-4 border-t border-[#26194d] space-y-2">
+        <div className="p-4 border-t border-[#26194d] space-y-2 shrink-0">
           <Link
             to="/"
             target="_blank"
@@ -200,7 +200,7 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         {/* Top Header */}
         <header className="h-16 bg-[#120c2e]/60 backdrop-blur-xl border-b border-[#26194d] px-6 flex items-center justify-between shrink-0">
           <div>
