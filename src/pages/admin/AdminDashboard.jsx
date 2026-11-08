@@ -14,6 +14,7 @@ import {
 } from "react-icons/fi";
 import ProjectsManager from "./components/projects/ProjectsManager";
 import ExperienceManager from "./components/experience/ExperienceManager";
+import CertificationsManager from "./components/certifications/CertificationsManager";
 
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -223,6 +224,7 @@ const AdminDashboard = () => {
         <div className="p-6 md:p-8 flex-1 overflow-y-auto">
           {activeTab === "projects" && <ProjectsManager />}
           {activeTab === "experience" && <ExperienceManager />}
+          {activeTab === "certifications" && <CertificationsManager />}
 
           {activeTab !== "projects" && activeTab !== "experience" && (
             <div className="bg-[#140e34]/70 border border-[#26194d] rounded-2xl p-8 text-center text-slate-400">
