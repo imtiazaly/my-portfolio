@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiX, FiPlus, FiUploadCloud, FiMove } from "react-icons/fi";
+import { FiX, FiPlus, FiUploadCloud, FiMove, FiLayers } from "react-icons/fi";
 
 const ProjectForm = ({
   isOpen,
@@ -12,10 +12,11 @@ const ProjectForm = ({
   onShowToast,
 }) => {
   const [tagInput, setTagInput] = useState("");
+  const [uploadingGallery, setUploadingGallery] = useState(false);
 
   if (!isOpen) return null;
 
-  // Slug Generator Helper
+  // 1. Slug Generator Helper
   const generateSlug = (title) => {
     return title
       .toLowerCase()
@@ -25,13 +26,16 @@ const ProjectForm = ({
       .replace(/^-+|-+$/g, "");
   };
 
-  // Tech Stack Tag Handlers
+  // 2. Tech Stack Tag Handlers (Optional)
   const handleAddTag = (e) => {
     if ((e.key === "Enter" || e.key === ",") && tagInput.trim()) {
       e.preventDefault();
       const clean = tagInput.trim().replace(/^,|,$/g, "");
-      if (clean && !formData.stack.includes(clean)) {
-        setFormData((prev) => ({ ...prev, stack: [...prev.stack, clean] }));
+      if (clean && !formData.stack?.includes(clean)) {
+        setFormData((prev) => ({
+          ...prev,
+          stack: [...(prev.stack || []), clean],
+        }));
       }
       setTagInput("");
     }
@@ -40,30 +44,33 @@ const ProjectForm = ({
   const handleRemoveTag = (tagToRemove) => {
     setFormData((prev) => ({
       ...prev,
-      stack: prev.stack.filter((t) => t !== tagToRemove),
+      stack: (prev.stack || []).filter((t) => t !== tagToRemove),
     }));
   };
 
-  // Dynamic Features Handlers
+  // 3. Key Features Dynamic Handlers (Optional)
   const handleFeatureChange = (index, value) => {
-    const updated = [...formData.features];
+    const updated = [...(formData.features || [])];
     updated[index] = value;
     setFormData((prev) => ({ ...prev, features: updated }));
   };
 
   const handleAddFeature = () => {
-    setFormData((prev) => ({ ...prev, features: [...prev.features, ""] }));
+    setFormData((prev) => ({
+      ...prev,
+      features: [...(prev.features || []), ""],
+    }));
   };
 
   const handleRemoveFeature = (index) => {
     setFormData((prev) => ({
       ...prev,
-      features: prev.features.filter((_, idx) => idx !== index),
+      features: (prev.features || []).filter((_, idx) => idx !== index),
     }));
   };
 
-  // File Upload Helper (Uploads to Disk)
-  const handleFileUpload = async (e) => {
+  // 4. Main Thumbnail Upload (Single File)
+  const handleThumbnailUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -84,15 +91,114 @@ const ProjectForm = ({
         const json = await res.json();
         if (json.success) {
           setFormData((prev) => ({ ...prev, image: json.url }));
-          onShowToast?.(`Image saved to ${json.url}`);
+          onShowToast?.(`Thumbnail saved to ${json.url}`);
         } else {
-          onShowToast?.("Image upload failed", "error");
+          onShowToast?.("Thumbnail upload failed", "error");
         }
       } catch {
-        onShowToast?.("Error uploading file", "error");
+        onShowToast?.("Error uploading thumbnail", "error");
       }
     };
     reader.readAsDataURL(file);
+  };
+
+  // 5. Multiple Images URL Boxes Handlers
+  const handleGalleryBoxChange = (index, value) => {
+    const updated = [...(formData.images || [])];
+    updated[index] = value;
+    setFormData((prev) => ({ ...prev, images: updated }));
+  };
+
+  const handleAddGalleryBox = () => {
+    setFormData((prev) => ({
+      ...prev,
+      images: [...(prev.images || []), ""],
+    }));
+  };
+
+  const handleRemoveGalleryBox = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      images: (prev.images || []).filter((_, idx) => idx !== index),
+    }));
+  };
+
+  // Upload Single File inside a specific box
+  const handleSingleGalleryBoxUpload = async (e, index) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const base64Data = reader.result;
+        const targetFolder = `images/projects/${formData.type || "web"}/${formData.slug || "temp"}`;
+        const res = await fetch("/api/admin/upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            filename: file.name,
+            targetFolder,
+            base64Data,
+          }),
+        });
+        const json = await res.json();
+        if (json.success) {
+          handleGalleryBoxChange(index, json.url);
+          onShowToast?.(`Saved image: ${file.name}`);
+        }
+      } catch {
+        onShowToast?.("Upload failed", "error");
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // Upload Multiple Files (creates an input URL box for each file)
+  const handleMultipleGalleryUpload = async (e) => {
+    const files = Array.from(e.target.files || []);
+    if (files.length === 0) return;
+
+    setUploadingGallery(true);
+    const newUrls = [];
+
+    for (const file of files) {
+      await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = async () => {
+          try {
+            const base64Data = reader.result;
+            const targetFolder = `images/projects/${formData.type || "web"}/${formData.slug || "temp"}`;
+            const res = await fetch("/api/admin/upload", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                filename: file.name,
+                targetFolder,
+                base64Data,
+              }),
+            });
+            const json = await res.json();
+            if (json.success) {
+              newUrls.push(json.url);
+            }
+          } catch {
+            // continue next file
+          }
+          resolve();
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    setUploadingGallery(false);
+    if (newUrls.length > 0) {
+      setFormData((prev) => ({
+        ...prev,
+        images: [...(prev.images || []), ...newUrls],
+      }));
+      onShowToast?.(`${newUrls.length} image URL box(es) created!`);
+    }
   };
 
   return (
@@ -122,13 +228,13 @@ const ProjectForm = ({
         {/* Form Body */}
         <form
           onSubmit={onSave}
-          className="p-6 space-y-5 overflow-y-auto flex-1"
+          className="p-6 space-y-6 overflow-y-auto flex-1 text-slate-300"
         >
           {/* Row 1: Title & Rank */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="md:col-span-3 space-y-1">
-              <label className="text-xs font-bold text-slate-300">
-                Project Title *
+              <label className="text-xs font-bold text-slate-200">
+                Project Title <span className="text-rose-400">*</span>
               </label>
               <input
                 type="text"
@@ -148,7 +254,7 @@ const ProjectForm = ({
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-300 flex items-center gap-1">
+              <label className="text-xs font-bold text-slate-200 flex items-center gap-1">
                 <FiMove className="w-3 h-3 text-indigo-400" />
                 <span>Rank / Position</span>
               </label>
@@ -169,7 +275,7 @@ const ProjectForm = ({
           {/* Row 2: Slug, Type & Category */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-300">
+              <label className="text-xs font-bold text-slate-200">
                 URL Slug
               </label>
               <input
@@ -183,13 +289,13 @@ const ProjectForm = ({
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-300">Type</label>
+              <label className="text-xs font-bold text-slate-200">Type</label>
               <select
                 value={formData.type}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, type: e.target.value }))
                 }
-                className="w-full px-4 py-2 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500"
+                className="w-full px-4 py-2 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500 capitalize"
               >
                 <option value="company">company</option>
                 <option value="web">web</option>
@@ -198,8 +304,9 @@ const ProjectForm = ({
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-300">
-                Category Tag
+              <label className="text-xs font-bold text-slate-200">
+                Category Tag{" "}
+                <span className="text-slate-500 font-normal">(Optional)</span>
               </label>
               <input
                 type="text"
@@ -213,10 +320,13 @@ const ProjectForm = ({
             </div>
           </div>
 
-          {/* Tech Stack Chip Input */}
+          {/* Tech Stack Chip Input (Optional) */}
           <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-300">
-              Tech Stack (Type & Press Enter or Comma)
+            <label className="text-xs font-bold text-slate-200">
+              Tech Stack{" "}
+              <span className="text-slate-500 font-normal">
+                (Optional — Type & Press Enter or Comma)
+              </span>
             </label>
             <div className="p-2.5 bg-[#0b0819] border border-[#2d1e5a] rounded-xl flex flex-wrap items-center gap-1.5 min-h-[46px]">
               {formData.stack?.map((tag, idx) => (
@@ -236,7 +346,7 @@ const ProjectForm = ({
               ))}
               <input
                 type="text"
-                placeholder="Add tech (e.g. React 19)..."
+                placeholder="Add tech (e.g. React 19, Tailwind)..."
                 value={tagInput}
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyDown={handleAddTag}
@@ -245,10 +355,11 @@ const ProjectForm = ({
             </div>
           </div>
 
-          {/* Description */}
+          {/* Description (Optional) */}
           <div className="space-y-1">
-            <label className="text-xs font-bold text-slate-300">
-              Description
+            <label className="text-xs font-bold text-slate-200">
+              Description{" "}
+              <span className="text-slate-500 font-normal">(Optional)</span>
             </label>
             <textarea
               rows="3"
@@ -259,16 +370,17 @@ const ProjectForm = ({
                   description: e.target.value,
                 }))
               }
-              placeholder="Detailed description of the application..."
+              placeholder="Detailed description of what this application does..."
               className="w-full px-4 py-2.5 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500 leading-relaxed"
             />
           </div>
 
-          {/* Key Features Bullets */}
+          {/* Key Features Bullets (Optional) */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-bold text-slate-300">
-                Key Features
+              <label className="text-xs font-bold text-slate-200">
+                Key Features{" "}
+                <span className="text-slate-500 font-normal">(Optional)</span>
               </label>
               <button
                 type="button"
@@ -288,25 +400,25 @@ const ProjectForm = ({
                     placeholder={`Feature ${fIdx + 1}...`}
                     className="flex-1 px-4 py-2 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500"
                   />
-                  {formData.features.length > 1 && (
-                    <button
-                      type="button"
-                      onClick={() => handleRemoveFeature(fIdx)}
-                      className="p-2 text-rose-400 hover:text-white hover:bg-rose-600/20 rounded-lg"
-                    >
-                      <FiX className="w-4 h-4" />
-                    </button>
-                  )}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveFeature(fIdx)}
+                    className="p-2 text-rose-400 hover:text-white hover:bg-rose-600/20 rounded-lg"
+                    title="Remove Bullet"
+                  >
+                    <FiX className="w-4 h-4" />
+                  </button>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Links: Live & GitHub */}
+          {/* Links: Live & GitHub (Optional) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-300">
-                Live URL
+              <label className="text-xs font-bold text-slate-200">
+                Live URL{" "}
+                <span className="text-slate-500 font-normal">(Optional)</span>
               </label>
               <input
                 type="url"
@@ -319,8 +431,9 @@ const ProjectForm = ({
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-300">
-                GitHub Repository URL
+              <label className="text-xs font-bold text-slate-200">
+                GitHub Repository URL{" "}
+                <span className="text-slate-500 font-normal">(Optional)</span>
               </label>
               <input
                 type="url"
@@ -334,10 +447,11 @@ const ProjectForm = ({
             </div>
           </div>
 
-          {/* Thumbnail Image with Upload */}
+          {/* Main Thumbnail Image */}
           <div className="space-y-1">
-            <label className="text-xs font-bold text-slate-300">
-              Main Thumbnail Image
+            <label className="text-xs font-bold text-slate-200">
+              Main Thumbnail Image{" "}
+              <span className="text-slate-500 font-normal">(Optional)</span>
             </label>
             <div className="flex gap-2">
               <input
@@ -347,18 +461,111 @@ const ProjectForm = ({
                   setFormData((prev) => ({ ...prev, image: e.target.value }))
                 }
                 placeholder="/images/projects/web/propelio/propelio1.png"
-                className="flex-1 px-4 py-2 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500"
+                className="flex-1 px-4 py-2 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white font-mono focus:outline-none focus:border-indigo-500"
               />
-              <label className="px-4 py-2 bg-[#1f154d] text-indigo-300 hover:text-white rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer border border-[#2d1e5a] hover:border-indigo-500 transition-colors">
+              <label className="px-4 py-2 bg-[#1f154d] text-indigo-300 hover:text-white rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer border border-[#2d1e5a] hover:border-indigo-500 transition-colors shrink-0">
                 <FiUploadCloud className="w-4 h-4" />
                 <span>Upload</span>
                 <input
                   type="file"
                   accept="image/*"
-                  onChange={handleFileUpload}
+                  onChange={handleThumbnailUpload}
                   className="hidden"
                 />
               </label>
+            </div>
+          </div>
+
+          {/* 🔥 Multiple Images URL Boxes ("images": []) */}
+          <div className="space-y-3 pt-4 border-t border-[#26194d]/80">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
+                  <FiLayers className="text-indigo-400" />
+                  <span>
+                    Gallery Screenshots URL Boxes (`images` array){" "}
+                    <span className="text-slate-500 font-normal">
+                      (Optional)
+                    </span>
+                  </span>
+                </label>
+                <p className="text-[11px] text-slate-500">
+                  Multiple images select karein ya manually path enter karein.
+                </p>
+              </div>
+
+              {/* Action Buttons: Add Box & Multi-Upload */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleAddGalleryBox}
+                  className="px-3 py-1.5 bg-[#1b1342] text-indigo-300 hover:text-white rounded-xl text-xs font-bold border border-[#2d1e5a] hover:border-indigo-500 flex items-center gap-1"
+                >
+                  <FiPlus className="w-3.5 h-3.5" />
+                  <span>Add URL Box</span>
+                </button>
+
+                <label className="px-3 py-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl text-xs font-bold flex items-center gap-1 cursor-pointer hover:opacity-95 shadow-md">
+                  <FiUploadCloud className="w-3.5 h-3.5" />
+                  <span>
+                    {uploadingGallery ? "Uploading..." : "Upload Multiple"}
+                  </span>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={handleMultipleGalleryUpload}
+                    disabled={uploadingGallery}
+                    className="hidden"
+                  />
+                </label>
+              </div>
+            </div>
+
+            {/* List of URL Boxes */}
+            <div className="space-y-2">
+              {formData.images?.map((imgUrl, imgIdx) => (
+                <div key={imgIdx} className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={imgUrl}
+                    onChange={(e) =>
+                      handleGalleryBoxChange(imgIdx, e.target.value)
+                    }
+                    placeholder={`Image path ${imgIdx + 1} (e.g. /images/projects/web/propelio/propelio${imgIdx + 1}.png)...`}
+                    className="flex-1 px-4 py-2 bg-[#0b0819] border border-[#2d1e5a] rounded-xl text-xs text-white font-mono focus:outline-none focus:border-indigo-500"
+                  />
+                  {/* Single upload/change button for this box */}
+                  <label
+                    className="px-3 py-2 bg-[#1f154d] text-indigo-300 hover:text-white rounded-xl text-xs font-bold flex items-center gap-1 cursor-pointer border border-[#2d1e5a] hover:border-indigo-500 transition-colors shrink-0"
+                    title="Upload / Replace this image"
+                  >
+                    <FiUploadCloud className="w-3.5 h-3.5" />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleSingleGalleryBoxUpload(e, imgIdx)}
+                      className="hidden"
+                    />
+                  </label>
+                  {/* Remove / Unselect Box */}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveGalleryBox(imgIdx)}
+                    className="p-2 text-rose-400 hover:text-white hover:bg-rose-600/20 rounded-lg shrink-0"
+                    title="Remove this URL box"
+                  >
+                    <FiX className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+
+              {(!formData.images || formData.images.length === 0) && (
+                <div className="p-3 border border-dashed border-[#2d1e5a] rounded-xl text-center text-xs text-slate-500">
+                  Koi extra screenshot add nahi hua. "Upload Multiple" par click
+                  karke ek sath files select karein ya "+ Add URL Box" dabayein.
+                </div>
+              )}
             </div>
           </div>
 
