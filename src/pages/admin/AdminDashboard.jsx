@@ -12,6 +12,7 @@ import {
   FiShield,
   FiCheckCircle,
 } from "react-icons/fi";
+import ProjectsManager from "./components/ProjectsManager";
 
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -217,17 +218,20 @@ const AdminDashboard = () => {
           </div>
         </header>
 
-        {/* Tab Body Placeholder (Manager Hubs will render here) */}
+        {/* Tab Body */}
         <div className="p-6 md:p-8 flex-1 overflow-y-auto">
-          <div className="bg-[#140e34]/70 border border-[#26194d] rounded-2xl p-8 text-center text-slate-400">
-            <p className="font-bold text-white text-base mb-1">
-              {navItems.find((n) => n.id === activeTab)?.label} is ready!
-            </p>
-            <p className="text-xs text-[#beafdc]">
-              Step 3.1 shell successfully loaded. We will connect the full
-              editor controls in Step 3.2.
-            </p>
-          </div>
+          {activeTab === "projects" && <ProjectsManager />}
+
+          {activeTab !== "projects" && (
+            <div className="bg-[#140e34]/70 border border-[#26194d] rounded-2xl p-8 text-center text-slate-400">
+              <p className="font-bold text-white text-base mb-1">
+                {navItems.find((n) => n.id === activeTab)?.label}
+              </p>
+              <p className="text-xs text-[#beafdc]">
+                Will be connected in the next step!
+              </p>
+            </div>
+          )}
         </div>
       </main>
     </div>

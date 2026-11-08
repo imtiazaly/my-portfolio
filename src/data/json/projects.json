@@ -342,7 +342,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/CampaignOS-Smart-Campaign-Management-System",
     "image": "/images/projects/web/campaign-os/campaignOs.JPG",
-    "images": ["/images/projects/web/campaign-os/campaignOs.JPG"],
+    "images": [
+      "/images/projects/web/campaign-os/campaignOs.JPG"
+    ],
     "order": 9
   },
   {
@@ -370,7 +372,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/FileFusion-Multi-Cloud-Storage-App",
     "image": "/images/projects/web/file-fusion/FileFusion.png",
-    "images": ["/images/projects/web/file-fusion/FileFusion.png"],
+    "images": [
+      "/images/projects/web/file-fusion/FileFusion.png"
+    ],
     "order": 10
   },
   {
@@ -396,7 +400,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/Shoba-Nazam-v2",
     "image": "/images/projects/web/shoba-nazam-v2/Shoba Nazam.png",
-    "images": ["/images/projects/web/shoba-nazam-v2/Shoba Nazam.png"],
+    "images": [
+      "/images/projects/web/shoba-nazam-v2/Shoba Nazam.png"
+    ],
     "order": 11
   },
   {
@@ -421,7 +427,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/LaraVue-Portal",
     "image": "/images/projects/web/laravue-portal/LaraVue Portal.png",
-    "images": ["/images/projects/web/laravue-portal/LaraVue Portal.png"],
+    "images": [
+      "/images/projects/web/laravue-portal/LaraVue Portal.png"
+    ],
     "order": 12
   },
   {
@@ -429,7 +437,12 @@
     "title": "🛍️ AuraCart E-Commerce",
     "slug": "auracart",
     "category": "Frontend",
-    "stack": ["ReactJS", "Redux Toolkit", "Vite", "Tailwind CSS"],
+    "stack": [
+      "ReactJS",
+      "Redux Toolkit",
+      "Vite",
+      "Tailwind CSS"
+    ],
     "description": "A premium, luxury e-commerce web application featuring real-time search, dynamic category routing, and comprehensive cart operations.",
     "features": [
       "Luxury Monochrome & Gold Aesthetic UI",
@@ -483,7 +496,12 @@
     "title": "🌐 Connectify Social Feed",
     "slug": "connectify",
     "category": "Frontend",
-    "stack": ["React.js", "Bootstrap 5", "Context API", "Vite"],
+    "stack": [
+      "React.js",
+      "Bootstrap 5",
+      "Context API",
+      "Vite"
+    ],
     "description": "A responsive social media feed application built to demonstrate React design patterns, authentication simulation, and error boundaries.",
     "features": [
       "Dynamic Theming Toggle (Light/Dark mode)",
@@ -509,7 +527,12 @@
     "title": "🎓 Learn Vue.js Practice App",
     "slug": "learn-vue-js-practice-app",
     "category": "Full Stack",
-    "stack": ["Laravel 12", "Vue 3", "Bootstrap 5", "MySQL"],
+    "stack": [
+      "Laravel 12",
+      "Vue 3",
+      "Bootstrap 5",
+      "MySQL"
+    ],
     "description": "A full-stack practice sandbox designed to experiment with Composition API, REST CRUD endpoints, and asynchronous file uploads.",
     "features": [
       "Composition API Playgrounds for state and reactive variables",
@@ -531,7 +554,12 @@
     "title": "Spotify Web Player Clone 🎵",
     "slug": "spotify-web-player-clone",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "Montserrat Font", "FontAwesome"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "Montserrat Font",
+      "FontAwesome"
+    ],
     "description": "A pixel-perfect design recreation of the Spotify Web Player layout, built to demonstrate CSS Flexbox mastery and structured semantic HTML.",
     "features": [
       "Authentic Dark Mode Aesthetics resembling the official player",
@@ -552,7 +580,13 @@
     "title": "ApexCrypt OS 🌌",
     "slug": "apex-crypt-os",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Binance WebSockets", "Chart.js"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Binance WebSockets",
+      "Chart.js"
+    ],
     "description": "A real-time cryptocurrency trading terminal utilizing live WebSocket streams, technical analysis charts, and an automated portfolio ledger simulator.",
     "features": [
       "Live Binance WebSocket data streams",
@@ -564,7 +598,9 @@
     "live": "https://imtiazaly.github.io/ApexCrypt-OS/",
     "github": "https://github.com/imtiazaly/ApexCrypt-OS",
     "image": "/images/projects/web/apex-crypt-os/ApexCrypt OS.png",
-    "images": ["/images/projects/web/apex-crypt-os/ApexCrypt OS.png"],
+    "images": [
+      "/images/projects/web/apex-crypt-os/ApexCrypt OS.png"
+    ],
     "order": 18
   },
   {
@@ -572,7 +608,12 @@
     "title": "My Portfolio Website 🌐",
     "slug": "my-portfolio-website",
     "category": "Frontend",
-    "stack": ["HTML5", "Bootstrap 5", "JavaScript", "CSS3"],
+    "stack": [
+      "HTML5",
+      "Bootstrap 5",
+      "JavaScript",
+      "CSS3"
+    ],
     "description": "A responsive personal developer portfolio featuring smooth navigation, a dynamic project gallery, and local-storage task tracking.",
     "features": [
       "Single-Page Smooth Scrolling Navigation",
@@ -597,7 +638,12 @@
     "title": "Personal Developer Portfolio 🚀",
     "slug": "personal-developer-portfolio",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Scroll-Triggered Animations"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Scroll-Triggered Animations"
+    ],
     "description": "An animated portfolio website with a cyber-noir theme, highlighting personal achievements, skills grid, and visual career timelines.",
     "features": [
       "Cyber-Noir Dark Theme Aesthetics",
@@ -619,7 +665,12 @@
     "title": "DevPortfolio Ranker 🚀",
     "slug": "dev-portfolio-ranker",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "HTML5 Drag-and-Drop API"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "HTML5 Drag-and-Drop API"
+    ],
     "description": "An interactive project organizer utility that allows developers to rank, sort, and organize portfolio items dynamically.",
     "features": [
       "Stateful HTML5 Drag-and-Drop Column Boards",
@@ -641,7 +692,12 @@
     "title": "📚 Quiz-Mind: AI Study Hub",
     "slug": "quiz-mind",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "NLP Parser Engine"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "NLP Parser Engine"
+    ],
     "description": "A gamified note-to-quiz parser app that extracts definitions from notes and builds interactive quizzes with telemetry.",
     "features": [
       "Intelligent Note-to-Quiz NLP Parsing",
@@ -653,7 +709,9 @@
     "live": "https://imtiazaly.github.io/QuizMind-Study-Hub/",
     "github": "https://github.com/imtiazaly/QuizMind-Study-Hub",
     "image": "/images/projects/web/quiz-mind/Quiz‑Mind.png",
-    "images": ["/images/projects/web/quiz-mind/Quiz‑Mind.png"],
+    "images": [
+      "/images/projects/web/quiz-mind/Quiz‑Mind.png"
+    ],
     "order": 22
   },
   {
@@ -661,7 +719,13 @@
     "title": "🎙️ SpeakFlow Teleprompter",
     "slug": "speakflow",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Web Speech API", "Web Audio API"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Web Speech API",
+      "Web Audio API"
+    ],
     "description": "A distraction-free speech reader, teleprompter, and pronunciation evaluator utilizing native browser audio capabilities.",
     "features": [
       "Auto-Scrolling Teleprompter Mode tracking read pacing",
@@ -673,7 +737,9 @@
     "live": "https://imtiazaly.github.io/SpeakFlow-Speech-Studio/",
     "github": "https://github.com/imtiazaly/SpeakFlow-Speech-Studio",
     "image": "/images/projects/web/speakflow/SpeakFlow.png",
-    "images": ["/images/projects/web/speakflow/SpeakFlow.png"],
+    "images": [
+      "/images/projects/web/speakflow/SpeakFlow.png"
+    ],
     "order": 23
   },
   {
@@ -681,7 +747,12 @@
     "title": "Lumina: Developer's Image Workspace",
     "slug": "lumina-image-workspace",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Unsplash API"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Unsplash API"
+    ],
     "description": "A smart asset utility linking photo searches to front-end development outputs with canvas-based palette harvesting and WCAG verification.",
     "features": [
       "Canvas-Based Palette Harvester using K-means color logic",
@@ -694,7 +765,9 @@
     "live": "https://imtiazaly.github.io/Lumina-Developers-Smart-Image-Workspace-and-Live-Asset-Studio/",
     "github": "https://github.com/imtiazaly/Lumina-Developers-Smart-Image-Workspace-and-Live-Asset-Studio",
     "image": "/images/projects/web/lumina-image-workspace/Lumina.JPG",
-    "images": ["/images/projects/web/lumina-image-workspace/Lumina.JPG"],
+    "images": [
+      "/images/projects/web/lumina-image-workspace/Lumina.JPG"
+    ],
     "order": 24
   },
   {
@@ -702,7 +775,13 @@
     "title": "⚡ FLUX Currency Intelligence",
     "slug": "flux-currency",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Chart.js", "Currency API"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Chart.js",
+      "Currency API"
+    ],
     "description": "A currency intelligence dashboard built with dynamic Chart.js trends, market watch alerts, and live currency rates.",
     "features": [
       "Institutional Exchange Converter using live APIs",
@@ -713,7 +792,9 @@
     "live": "https://imtiazaly.github.io/FLUX-currency-converter/",
     "github": "https://github.com/imtiazaly/FLUX-currency-converter",
     "image": "/images/projects/web/flux-currency/FLUX.png",
-    "images": ["/images/projects/web/flux-currency/FLUX.png"],
+    "images": [
+      "/images/projects/web/flux-currency/FLUX.png"
+    ],
     "order": 25
   },
   {
@@ -721,7 +802,12 @@
     "title": "🌤️ AtmosLux Weather",
     "slug": "atmoslux",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "OpenWeatherMap API"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "OpenWeatherMap API"
+    ],
     "description": "A dynamic weather dashboard providing real-time forecasts, GPS geolocation search, and interactive floating particle designs.",
     "features": [
       "Real-Time Weather Broadcast utilizing GPS Geolocation",
@@ -733,7 +819,9 @@
     "live": "https://imtiazaly.github.io/AtmosLux-weather-App/",
     "github": "https://github.com/imtiazaly/AtmosLux-weather-App",
     "image": "/images/projects/web/atmoslux/AtmosLux.png",
-    "images": ["/images/projects/web/atmoslux/AtmosLux.png"],
+    "images": [
+      "/images/projects/web/atmoslux/AtmosLux.png"
+    ],
     "order": 26
   },
   {
@@ -741,7 +829,12 @@
     "title": "🌌 Zenith Mission Control",
     "slug": "zenith-mission-control",
     "category": "Frontend",
-    "stack": ["ReactJS", "React Context API", "Vite", "CSS3"],
+    "stack": [
+      "ReactJS",
+      "React Context API",
+      "Vite",
+      "CSS3"
+    ],
     "description": "A futuristic task management ecosystem featuring mission nodes, operational pulse statistics, and stateful tracking.",
     "features": [
       "Mission Control Task Nodes and status boards",
@@ -763,7 +856,12 @@
     "title": "✨ Stellar Tasks To-Do",
     "slug": "stellar-tasks",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "LocalStorage"
+    ],
     "description": "A glassmorphic task tracker featuring particle backdrops, task list categorization, and local-storage data persistence.",
     "features": [
       "Glassmorphism Task Cards & Interfaces",
@@ -774,7 +872,9 @@
     "live": "https://imtiazaly.github.io/STELLAR-TASKS-to-do-list-app/",
     "github": "https://github.com/imtiazaly/STELLAR-TASKS-to-do-list-app",
     "image": "/images/projects/web/stellar-tasks/Stellar Tasks.png",
-    "images": ["/images/projects/web/stellar-tasks/Stellar Tasks.png"],
+    "images": [
+      "/images/projects/web/stellar-tasks/Stellar Tasks.png"
+    ],
     "order": 28
   },
   {
@@ -782,7 +882,12 @@
     "title": "🔐 CIPHER VAULT",
     "slug": "cipher-vault",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript", "QR Code API"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "QR Code API"
+    ],
     "description": "A cryptographic password utility generating highly customized passwords and packaging them instantly into scannable secure QR codes.",
     "features": [
       "Cryptographic Strength Meter & Custom Character Slider",
@@ -793,7 +898,9 @@
     "live": "https://imtiazaly.github.io/CIPHER-VAULT-random-password-generator/",
     "github": "https://github.com/imtiazaly/CIPHER-VAULT-random-password-generator",
     "image": "/images/projects/web/cipher-vault/CIPHER VAULT.png",
-    "images": ["/images/projects/web/cipher-vault/CIPHER VAULT.png"],
+    "images": [
+      "/images/projects/web/cipher-vault/CIPHER VAULT.png"
+    ],
     "order": 29
   },
   {
@@ -801,7 +908,12 @@
     "title": "🌌 Chronos Nebula Clock",
     "slug": "chronos-nebula",
     "category": "Frontend",
-    "stack": ["React 19", "Vite", "Framer Motion", "Bootstrap 5"],
+    "stack": [
+      "React 19",
+      "Vite",
+      "Framer Motion",
+      "Bootstrap 5"
+    ],
     "description": "A celestial orbital clock app mapping time metrics to orbital paths, built with React and advanced motion components.",
     "features": [
       "Orbital time representation tracking hours, minutes, seconds",
@@ -812,7 +924,9 @@
     "live": "https://imtiazaly.github.io/Clock-React-Project/",
     "github": "https://github.com/imtiazaly/Clock-React-Project",
     "image": "/images/projects/web/chronos-nebula/Chronos Nebula.png",
-    "images": ["/images/projects/web/chronos-nebula/Chronos Nebula.png"],
+    "images": [
+      "/images/projects/web/chronos-nebula/Chronos Nebula.png"
+    ],
     "order": 30
   },
   {
@@ -820,7 +934,12 @@
     "title": "🧮 QuantumCalc 3D",
     "slug": "quantum-calc",
     "category": "Frontend",
-    "stack": ["React 19", "Vite", "Bootstrap 5", "Tilt-Effect CSS"],
+    "stack": [
+      "React 19",
+      "Vite",
+      "Bootstrap 5",
+      "Tilt-Effect CSS"
+    ],
     "description": "A responsive React calculator highlighting modern interactive 3D physics, glassmorphic layout, and complete keyboard integrations.",
     "features": [
       "Dynamic 3D Card Tilt effects based on mouse coordinates",
@@ -831,7 +950,9 @@
     "live": "https://imtiazaly.github.io/QuantumCalc-3D-Immersive-Calculator-React-Project/",
     "github": "https://github.com/imtiazaly/QuantumCalc-3D-Immersive-Calculator-React-Project",
     "image": "/images/projects/web/quantum-calc/QuantumCalc.png",
-    "images": ["/images/projects/web/quantum-calc/QuantumCalc.png"],
+    "images": [
+      "/images/projects/web/quantum-calc/QuantumCalc.png"
+    ],
     "order": 31
   },
   {
@@ -839,7 +960,11 @@
     "title": "⏱️ ChronosAnalytics Lifespan",
     "slug": "chronos-analytics",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
     "description": "An analytical lifespan metrics audit reporting exact birthdays, age statistics down to seconds, zodiac data, and astronomical parameters.",
     "features": [
       "Millisecond precision age calculations",
@@ -850,7 +975,9 @@
     "live": "https://imtiazaly.github.io/ChronosAnalytics-Precision-Age-Analytics-Dashboard/",
     "github": "https://github.com/imtiazaly/ChronosAnalytics-Precision-Age-Analytics-Dashboard",
     "image": "/images/projects/web/chronos-analytics/ChronosAnalytics.png",
-    "images": ["/images/projects/web/chronos-analytics/ChronosAnalytics.png"],
+    "images": [
+      "/images/projects/web/chronos-analytics/ChronosAnalytics.png"
+    ],
     "order": 32
   },
   {
@@ -858,7 +985,11 @@
     "title": "🕰️ Digital Clock Pro",
     "slug": "digital-clock-pro",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
     "description": "A customizable digital alarm clock showing dynamic time feeds, integrated alarm management alerts, and multiple design layers.",
     "features": [
       "Digital & Analog Clock toggles",
@@ -869,7 +1000,9 @@
     "live": "https://imtiazaly.github.io/Digital-Clock",
     "github": "https://github.com/imtiazaly/Digital-Clock",
     "image": "/images/projects/web/digital-clock-pro/Digital Clock Pro.png",
-    "images": ["/images/projects/web/digital-clock-pro/Digital Clock Pro.png"],
+    "images": [
+      "/images/projects/web/digital-clock-pro/Digital Clock Pro.png"
+    ],
     "order": 33
   },
   {
@@ -877,7 +1010,11 @@
     "title": "Rock Paper Scissors Premium",
     "slug": "rock-paper-scissors-premium",
     "category": "Frontend",
-    "stack": ["HTML5", "CSS3", "JavaScript"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
     "description": "A modern representation of the classic rock-paper-scissors game built with premium glassmorphism layouts and scoreboard metrics.",
     "features": [
       "Sleek Glassmorphic interface cards",
@@ -898,7 +1035,11 @@
     "title": "Tic-Tac-Toe Game",
     "slug": "tic-tac-toe-game",
     "category": "Frontend",
-    "stack": ["HTML", "CSS", "JavaScript"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
     "description": "A responsive Tic-Tac-Toe game detailing clean state transitions, win checks, and UI resets.",
     "features": [
       "Responsive playing grid layout",
@@ -909,7 +1050,9 @@
     "live": "https://imtiazaly.github.io/Tic-Tac-Toe-game/",
     "github": "https://github.com/imtiazaly/Tic-Tac-Toe-game",
     "image": "/images/projects/web/tic-tac-toe-game/Tic-Tac-Toe Game.png",
-    "images": ["/images/projects/web/tic-tac-toe-game/Tic-Tac-Toe Game.png"],
+    "images": [
+      "/images/projects/web/tic-tac-toe-game/Tic-Tac-Toe Game.png"
+    ],
     "order": 35
   },
   {
@@ -917,7 +1060,10 @@
     "title": "Amazon Homepage Clone",
     "slug": "amazon-homepage-clone",
     "category": "Frontend",
-    "stack": ["HTML", "CSS"],
+    "stack": [
+      "HTML",
+      "CSS"
+    ],
     "description": "A static design project replicating the complex layout of the Amazon homepage, utilizing header dropdowns and nested product grids.",
     "features": [
       "Classic navigation headers replica",
@@ -938,7 +1084,10 @@
     "title": "Flexbox Project Layout",
     "slug": "flexbox-project-layout",
     "category": "Frontend",
-    "stack": ["HTML", "CSS"],
+    "stack": [
+      "HTML",
+      "CSS"
+    ],
     "description": "A foundational layout demonstrating CSS Flexbox mechanics, featuring responsive sections and dynamic column flex wrap adjustments.",
     "features": [
       "Responsive web page alignment",
@@ -1073,7 +1222,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/Shop-Management-Mobile-App",
     "image": "/images/projects/mobile/shop-management/shop-app.PNG",
-    "images": ["/images/projects/mobile/shop-management/shop-app.PNG"],
+    "images": [
+      "/images/projects/mobile/shop-management/shop-app.PNG"
+    ],
     "order": 41
   },
   {
@@ -1125,7 +1276,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/Password-Generator-App-React-Native",
     "image": "/images/projects/mobile/password-generator/passgen.PNG",
-    "images": ["/images/projects/mobile/password-generator/passgen.PNG"],
+    "images": [
+      "/images/projects/mobile/password-generator/passgen.PNG"
+    ],
     "order": 43
   },
   {
@@ -1186,7 +1339,12 @@
     "title": "❌⭕ Tic-Tac-Toe — Mobile Game",
     "slug": "tic-tac-toe-app",
     "category": "Mobile App",
-    "stack": ["React Native", "TypeScript", "Snackbar Alerts", "Vector Icons"],
+    "stack": [
+      "React Native",
+      "TypeScript",
+      "Snackbar Alerts",
+      "Vector Icons"
+    ],
     "description": "An interactive two-player Tic-Tac-Toe game built with React Native, featuring turn indicators, winner detection algorithms, and game reset options.",
     "features": [
       "3x3 Stateful Grid Board evaluating combinations for X and O",
@@ -1208,7 +1366,11 @@
     "title": "🎲 Roll The Dice — Interactive Mobile App",
     "slug": "roll-the-dice-app",
     "category": "Mobile App",
-    "stack": ["React Native", "TypeScript", "Haptic Feedback"],
+    "stack": [
+      "React Native",
+      "TypeScript",
+      "Haptic Feedback"
+    ],
     "description": "A playful interactive dice rolling application using dynamic image swapping algorithms and tactile haptic feedback upon dice roll actions.",
     "features": [
       "Randomized 6-sided dice roll generator algorithm",
@@ -1230,7 +1392,10 @@
     "title": "🎨 ColorVibe — Dynamic Background Changer",
     "slug": "bg-changer-app",
     "category": "Mobile App",
-    "stack": ["React Native", "TypeScript"],
+    "stack": [
+      "React Native",
+      "TypeScript"
+    ],
     "description": "A mobile utility app that generates random hexadecimal colors and dynamically updates screen background and status bar styles on tap.",
     "features": [
       "Random Hexadecimal color code generator algorithm",
@@ -1252,7 +1417,12 @@
     "title": "🎴 Styler — Component Layout Showcase",
     "slug": "styler02-ui-showcase",
     "category": "Mobile App",
-    "stack": ["React Native", "TypeScript", "ScrollView", "FlatList"],
+    "stack": [
+      "React Native",
+      "TypeScript",
+      "ScrollView",
+      "FlatList"
+    ],
     "description": "A comprehensive UI component library showcase illustrating React Native styling patterns, card lists, elevated pressables, and contact lists.",
     "features": [
       "FlatCards & ElevatedCards horizontal scroll views",
@@ -1273,7 +1443,11 @@
     "title": "🎨 Basic UI Patterns with React Native",
     "slug": "basic-ui-react-native",
     "category": "Mobile App",
-    "stack": ["React Native", "JavaScript", "StyleSheet"],
+    "stack": [
+      "React Native",
+      "JavaScript",
+      "StyleSheet"
+    ],
     "description": "A foundational React Native practice application focused on mastering core mobile layout primitives, Flexbox positioning, and typography.",
     "features": [
       "Flexbox layout experiments (flexDirection, justifyContent, alignItems)",
@@ -1282,7 +1456,9 @@
     "live": "#",
     "github": "https://github.com/imtiazaly/Basic-UI-with-React-Native",
     "image": "/images/projects/mobile/basic-ui/ui.PNG",
-    "images": ["/images/projects/mobile/basic-ui/ui.PNG"],
+    "images": [
+      "/images/projects/mobile/basic-ui/ui.PNG"
+    ],
     "order": 50
   },
   {
@@ -1290,7 +1466,10 @@
     "title": "🎓 React Native Practice Sandbox",
     "slug": "learn-react-native",
     "category": "Mobile App",
-    "stack": ["React Native", "JavaScript"],
+    "stack": [
+      "React Native",
+      "JavaScript"
+    ],
     "description": "Hands-on learning practice repository created while mastering React Native core concepts, component lifecycle, and styling rules.",
     "features": [
       "Practice components exploring core React Native views and components",
