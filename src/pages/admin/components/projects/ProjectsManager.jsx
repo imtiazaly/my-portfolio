@@ -84,11 +84,17 @@ const ProjectsManager = () => {
   const handleOpenEdit = (project) => {
     setFormData({
       ...project,
-      features: project.features?.length ? project.features : [""],
-      stack: project.stack || [],
-      images: project.images || [],
+      features: Array.isArray(project.features) ? [...project.features] : [""],
+      stack: Array.isArray(project.stack) ? [...project.stack] : [],
+      images: Array.isArray(project.images) ? [...project.images] : [],
     });
     setIsModalOpen(true);
+  };
+
+  // 🔥 Naya: Har dafa close hone par state ko clean reset karein
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setFormData(INITIAL_PROJECT_FORM);
   };
 
   // 4. Save Project (Create / Update)
@@ -314,7 +320,7 @@ const ProjectsManager = () => {
       {/* 3. Add/Edit Modal */}
       <ProjectForm
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={handleCloseModal}
         formData={formData}
         setFormData={setFormData}
         onSave={handleSaveProject}

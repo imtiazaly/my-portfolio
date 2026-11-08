@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FiX,
   FiPlus,
@@ -19,10 +19,29 @@ const ProjectForm = ({
   onShowToast,
 }) => {
   const [tagInput, setTagInput] = useState("");
-  // Staged files in memory (NOT written to disk until form submit)
+  // Staged files in memory
   const [pendingThumbnailFile, setPendingThumbnailFile] = useState(null);
-  const [pendingGalleryFiles, setPendingGalleryFiles] = useState({}); // { [index]: File }
+  const [pendingGalleryFiles, setPendingGalleryFiles] = useState({});
   const [uploadingOnSubmit, setUploadingOnSubmit] = useState(false);
+
+  // 🔥 Naya: Jab bhi modal open ho ya project change ho, pichla saara staged kachra saaf karein!
+  useEffect(() => {
+    if (isOpen) {
+      setPendingThumbnailFile(null);
+      setPendingGalleryFiles({});
+      setTagInput("");
+      setUploadingOnSubmit(false);
+    }
+  }, [isOpen, formData?.id]);
+
+  // 🔥 Naya: Clean Close helper
+  const handleCleanClose = () => {
+    setPendingThumbnailFile(null);
+    setPendingGalleryFiles({});
+    setTagInput("");
+    setUploadingOnSubmit(false);
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -270,7 +289,7 @@ const ProjectForm = ({
             </p>
           </div>
           <button
-            onClick={onClose}
+            onClick={handleCleanClose}
             className="p-2 text-slate-400 hover:text-white rounded-xl hover:bg-[#1e154a]"
           >
             <FiX className="w-5 h-5" />
@@ -644,7 +663,7 @@ const ProjectForm = ({
           <div className="pt-4 border-t border-[#26194d] flex items-center justify-end gap-3">
             <button
               type="button"
-              onClick={onClose}
+              onClick={handleCleanClose}
               disabled={saving || uploadingOnSubmit}
               className="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white hover:bg-[#1a1240] disabled:opacity-50"
             >
