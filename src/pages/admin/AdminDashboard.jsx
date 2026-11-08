@@ -12,7 +12,7 @@ import {
   FiShield,
   FiCheckCircle,
 } from "react-icons/fi";
-import ProjectsManager from "./components/ProjectsManager";
+import ProjectsManager from "./components/projects/ProjectsManager";
 
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
