@@ -13,6 +13,7 @@ import {
   FiCheckCircle,
 } from "react-icons/fi";
 import ProjectsManager from "./components/projects/ProjectsManager";
+import ExperienceManager from "./components/experience/ExperienceManager";
 
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -221,8 +222,9 @@ const AdminDashboard = () => {
         {/* Tab Body */}
         <div className="p-6 md:p-8 flex-1 overflow-y-auto">
           {activeTab === "projects" && <ProjectsManager />}
+          {activeTab === "experience" && <ExperienceManager />}
 
-          {activeTab !== "projects" && (
+          {activeTab !== "projects" && activeTab !== "experience" && (
             <div className="bg-[#140e34]/70 border border-[#26194d] rounded-2xl p-8 text-center text-slate-400">
               <p className="font-bold text-white text-base mb-1">
                 {navItems.find((n) => n.id === activeTab)?.label}
