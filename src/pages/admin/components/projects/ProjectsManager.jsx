@@ -92,30 +92,41 @@ const ProjectsManager = () => {
   };
 
   // 4. Save Project (Create / Update)
-  const handleSaveProject = async (e) => {
-    e.preventDefault();
-    if (!formData.title.trim()) {
+  const handleSaveProject = async (e, submittedData) => {
+    if (e) e.preventDefault();
+    const currentData = submittedData || formData;
+
+    if (!currentData.title?.trim()) {
       showToast("Title is required!", "error");
       return;
     }
 
     setSaving(true);
     try {
-      const cleanFeatures = formData.features.filter(
-        (f) => f.trim().length > 0,
+      const cleanFeatures = (currentData.features || []).filter(
+        (f) => f && f.trim().length > 0,
+      );
+      const cleanImages = (currentData.images || []).filter(
+        (img) => img && img.trim().length > 0,
       );
       let updatedList = [...projects];
 
-      if (formData.id) {
+      if (currentData.id) {
         // Edit Mode
         const targetOrder = Math.max(
           1,
-          Math.min(projects.length, Number(formData.order) || 1),
+          Math.min(projects.length, Number(currentData.order) || 1),
         );
-        const existingIdx = updatedList.findIndex((p) => p.id === formData.id);
+        const existingIdx = updatedList.findIndex(
+          (p) => p.id === currentData.id,
+        );
 
         if (existingIdx !== -1) {
-          const updatedItem = { ...formData, features: cleanFeatures };
+          const updatedItem = {
+            ...currentData,
+            features: cleanFeatures,
+            images: cleanImages,
+          };
           updatedList.splice(existingIdx, 1);
           updatedList.splice(targetOrder - 1, 0, updatedItem);
         }
@@ -127,13 +138,14 @@ const ProjectsManager = () => {
             : 1;
         const targetOrder = Math.max(
           1,
-          Math.min(projects.length + 1, Number(formData.order) || 1),
+          Math.min(projects.length + 1, Number(currentData.order) || 1),
         );
 
         const newItem = {
-          ...formData,
+          ...currentData,
           id: newId,
           features: cleanFeatures,
+          images: cleanImages,
         };
         updatedList.splice(targetOrder - 1, 0, newItem);
       }
@@ -155,7 +167,7 @@ const ProjectsManager = () => {
         setProjects(normalized);
         setIsModalOpen(false);
         showToast(
-          formData.id
+          currentData.id
             ? "Project updated successfully!"
             : "New project added to disk!",
         );
