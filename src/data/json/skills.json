@@ -14,22 +14,38 @@
   },
   {
     "category": "Backend",
-    "items": ["Laravel", "PHP", "REST API", "Node.js"]
+    "items": [
+      "Laravel",
+      "PHP",
+      "REST API",
+      "Node.js"
+    ]
   },
   {
     "category": "Database",
-    "items": ["MySQL", "PostgreSQL"]
+    "items": [
+      "MySQL",
+      "PostgreSQL"
+    ]
   },
   {
     "category": "QA Automation",
-    "items": ["Playwright"]
+    "items": [
+      "Playwright"
+    ]
   },
   {
     "category": "Desktop",
-    "items": ["Electron.js"]
+    "items": [
+      "Electron.js"
+    ]
   },
   {
     "category": "Tools",
-    "items": ["Git", "GitHub", "VS Code"]
+    "items": [
+      "Git",
+      "GitHub",
+      "VS Code"
+    ]
   }
 ]
