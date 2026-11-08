@@ -1010,8 +1010,14 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/SpotifyMusics-App-React-Native",
-    "image": "/images/projects/mobile/spotify-musics/spotify.png",
-    "images": ["/images/projects/mobile/spotify-musics/spotify.png"],
+    "image": "/images/projects/mobile/spotify-player/home1.jpeg",
+    "images": [
+      "/images/projects/mobile/spotify-player/home1.jpeg",
+      "/images/projects/mobile/spotify-player/home2.jpeg",
+      "/images/projects/mobile/spotify-player/home3.jpeg",
+      "/images/projects/mobile/spotify-player/playlist.jpeg",
+      "/images/projects/mobile/spotify-player/setting.jpeg"
+    ],
     "order": 39
   },
   {
@@ -1037,10 +1043,10 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Appwrite-Auth-App-React-Native",
-    "image": "/images/projects/mobile/appwrite-auth/awa.jpeg",
+    "image": "/images/projects/mobile/appwrite-auth/dashboard.jpeg",
     "images": [
+      "/images/projects/mobile/appwrite-auth/dashboard.jpeg",
       "/images/projects/mobile/appwrite-auth/awa.jpeg",
-      "/images/projects/mobile/appwrite-auth/awa2.jpeg",
       "/images/projects/mobile/appwrite-auth/awa3.jpeg"
     ],
     "order": 40
@@ -1066,8 +1072,8 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Shop-Management-Mobile-App",
-    "image": "/images/projects/mobile/shop-management/shop.png",
-    "images": ["/images/projects/mobile/shop-management/shop.png"],
+    "image": "/images/projects/mobile/shop-management/shop-app.PNG",
+    "images": ["/images/projects/mobile/shop-management/shop-app.PNG"],
     "order": 41
   },
   {
@@ -1090,8 +1096,11 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Shopping-App-React-Native",
-    "image": "/images/projects/mobile/shopping-app/shopping.png",
-    "images": ["/images/projects/mobile/shopping-app/shopping.png"],
+    "image": "/images/projects/mobile/shopping/home.PNG",
+    "images": [
+      "/images/projects/mobile/shopping/home.PNG",
+      "/images/projects/mobile/shopping/details.PNG"
+    ],
     "order": 42
   },
   {
@@ -1115,8 +1124,8 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Password-Generator-App-React-Native",
-    "image": "/images/projects/mobile/password-generator/password.png",
-    "images": ["/images/projects/mobile/password-generator/password.png"],
+    "image": "/images/projects/mobile/password-generator/passgen.PNG",
+    "images": ["/images/projects/mobile/password-generator/passgen.PNG"],
     "order": 43
   },
   {
@@ -1139,8 +1148,11 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Currency-Converter-App-React-Native",
-    "image": "/images/projects/mobile/currency-converter/currency.png",
-    "images": ["/images/projects/mobile/currency-converter/currency.png"],
+    "image": "/images/projects/mobile/currency-converter/mainScreen.PNG",
+    "images": [
+      "/images/projects/mobile/currency-converter/mainScreen.PNG",
+      "/images/projects/mobile/currency-converter/counPicker.PNG"
+    ],
     "order": 44
   },
   {
@@ -1162,8 +1174,11 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Navigate-Explore-React-Native",
-    "image": "/images/projects/mobile/navigate-explore/navigate.png",
-    "images": ["/images/projects/mobile/navigate-explore/navigate.png"],
+    "image": "/images/projects/mobile/navigate-explore/home.PNG",
+    "images": [
+      "/images/projects/mobile/navigate-explore/home.PNG",
+      "/images/projects/mobile/navigate-explore/details.PNG"
+    ],
     "order": 45
   },
   {
@@ -1180,8 +1195,12 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/Tic-Tac-Toe-App-React-Native",
-    "image": "/images/projects/mobile/tic-tac-toe/tictactoe.png",
-    "images": ["/images/projects/mobile/tic-tac-toe/tictactoe.png"],
+    "image": "/images/projects/mobile/tic-tac-toe/gameStart.PNG",
+    "images": [
+      "/images/projects/mobile/tic-tac-toe/gameStart.PNG",
+      "/images/projects/mobile/tic-tac-toe/play.PNG",
+      "/images/projects/mobile/tic-tac-toe/result.PNG"
+    ],
     "order": 46
   },
   {
@@ -1198,8 +1217,12 @@
     ],
     "live": "#",
     "github": "https://github.com/imtiazaly/RollTheDice-App-React-Native",
-    "image": "/images/projects/mobile/roll-the-dice/dice.png",
-    "images": ["/images/projects/mobile/roll-the-dice/dice.png"],
+    "image": "/images/projects/mobile/roll-the-dice/roll1.PNG",
+    "images": [
+      "/images/projects/mobile/roll-the-dice/roll1.PNG",
+      "/images/projects/mobile/roll-the-dice/roll2.PNG",
+      "/images/projects/mobile/roll-the-dice/roll3.PNG"
+    ],
     "order": 47
   },
   {
