@@ -8,7 +8,7 @@ const SectionDivider = ({ className = "" }) => {
     >
       {/* 1. Base Subtle 1px Track Line (Edges fade to transparent) */}
       <div className="relative w-full h-[2px] bg-gradient-to-r from-transparent via-slate-300/60 dark:via-[#2d1e5a]/80 to-transparent flex items-center justify-center">
-        {/* 2. Moving Glowing Laser Beam (Continuous Smooth Wave) */}
+        {/* 2. Moving Glowing Laser Beam (Left to Right to Left Ping-Pong) */}
         <motion.div
           className="absolute h-[2px] w-36 sm:w-56 bg-gradient-to-r from-transparent via-indigo-500 to-pink-500 rounded-full"
           style={{
@@ -19,8 +19,9 @@ const SectionDivider = ({ className = "" }) => {
             x: ["-250%", "250%"],
           }}
           transition={{
-            duration: 4.5,
+            duration: 4,
             repeat: Infinity,
+            repeatType: "reverse",
             ease: "easeInOut",
           }}
         />
