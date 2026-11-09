@@ -129,95 +129,107 @@ const About = () => {
           {/* Card 1: Narrative (About Bio) */}
           <motion.div
             variants={cardVariants}
-            className="md:col-span-2 md:row-span-2 terminal-card flex flex-col justify-between hover:scale-[1.01] transition-all duration-300"
+            className="md:col-span-2 md:row-span-2 glow-card-wrapper rounded-[24px] p-[1px] hover:-translate-y-1 transition-all duration-300"
           >
-            {/* Terminal Window Header / Control Bar */}
-            <div className="terminal-header px-6 py-4 flex items-center justify-between select-none">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e] shadow-sm" />
-                <span className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dfa023] shadow-sm" />
-                <span className="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29] shadow-sm" />
+            <div className="glow-card-border rounded-[24px]" />
+
+            <div className="relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[23px] overflow-hidden flex flex-col justify-between">
+              {/* Terminal Window Header / Control Bar */}
+              <div className="terminal-header px-6 py-4 flex items-center justify-between select-none">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e] shadow-sm" />
+                  <span className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dfa023] shadow-sm" />
+                  <span className="w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29] shadow-sm" />
+                </div>
+
+                <div className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500 flex items-center gap-1.5 bg-white/20 dark:bg-[#121218]/40 border border-slate-200/30 dark:border-white/[0.04] px-3.5 py-1.5 rounded-lg shadow-sm">
+                  <span className="text-indigo-500 dark:text-indigo-400 font-extrabold">
+                    &gt;_
+                  </span>
+                  <span>profile.md</span>
+                </div>
+
+                <div className="w-[54px] lg:block hidden" />
               </div>
 
-              <div className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500 flex items-center gap-1.5 bg-white/20 dark:bg-[#121218]/40 border border-slate-200/30 dark:border-white/[0.04] px-3.5 py-1.5 rounded-lg shadow-sm">
-                <span className="text-indigo-500 dark:text-indigo-400 font-extrabold">
-                  &gt;_
-                </span>
-                <span>profile.md</span>
+              {/* Narrative Content */}
+              <div className="p-6 sm:p-8 flex flex-col justify-center flex-grow space-y-4 md:space-y-5">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug">
+                  Building clean web applications and responsive client-side
+                  user experiences.
+                </h3>
+
+                {profile.about.bioParagraphs.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base"
+                  >
+                    {para}
+                  </p>
+                ))}
               </div>
-
-              <div className="w-[54px] lg:block hidden" />
-            </div>
-
-            {/* Narrative Content */}
-            <div className="p-6 sm:p-8 flex flex-col justify-center flex-grow space-y-4 md:space-y-5">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug">
-                Building clean web applications and responsive client-side user
-                experiences.
-              </h3>
-
-              {profile.about.bioParagraphs.map((para, idx) => (
-                <p
-                  key={idx}
-                  className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base"
-                >
-                  {para}
-                </p>
-              ))}
             </div>
           </motion.div>
 
           {/* Card 2: Experience Counter */}
           <motion.div
             variants={cardVariants}
-            className="md:col-span-1 md:row-span-1 terminal-card p-6 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300"
+            className="md:col-span-1 md:row-span-1 glow-card-wrapper rounded-[24px] p-[1px] hover:-translate-y-1 transition-all duration-300"
           >
-            <div className="flex items-center justify-between w-full">
-              <div className="space-y-1">
-                <span className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">
-                  {profile.about.experienceValue}
-                </span>
-                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                  {profile.about.experienceLabel}
-                </h4>
+            <div className="glow-card-border rounded-[24px]" />
+
+            <div className="relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[23px] overflow-hidden p-6 flex flex-col justify-between">
+              <div className="flex items-center justify-between w-full">
+                <div className="space-y-1">
+                  <span className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">
+                    {profile.about.experienceValue}
+                  </span>
+                  <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">
+                    {profile.about.experienceLabel}
+                  </h4>
+                </div>
+
+                <ProgressCircle />
               </div>
 
-              <ProgressCircle />
-            </div>
-
-            <div className="border-t border-slate-200/40 dark:border-white/[0.04] pt-3 mt-4">
-              <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">
-                At Softleed Company
-              </span>
-              <p className="text-xs text-slate-700 dark:text-slate-300 mt-1.5 leading-relaxed font-medium">
-                Joined as intern in July 2025; transitioned to full-time
-                developer role in Sept 2025.
-              </p>
+              <div className="border-t border-slate-200/40 dark:border-white/[0.04] pt-3 mt-4">
+                <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                  At Softleed Company
+                </span>
+                <p className="text-xs text-slate-700 dark:text-slate-300 mt-1.5 leading-relaxed font-medium">
+                  Joined as intern in July 2025; transitioned to full-time
+                  developer role in Sept 2025.
+                </p>
+              </div>
             </div>
           </motion.div>
 
           {/* Card 3: Projects Counter */}
           <motion.div
             variants={cardVariants}
-            className="md:col-span-1 md:row-span-1 terminal-card p-6 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300"
+            className="md:col-span-1 md:row-span-1 glow-card-wrapper rounded-[24px] p-[1px] hover:-translate-y-1 transition-all duration-300"
           >
-            <div className="flex items-center justify-between w-full">
-              <div className="space-y-1">
-                <span className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">
-                  30+
-                </span>
-                <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                  Personal Projects
-                </h4>
+            <div className="glow-card-border rounded-[24px]" />
+
+            <div className="relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[23px] overflow-hidden p-6 flex flex-col justify-between">
+              <div className="flex items-center justify-between w-full">
+                <div className="space-y-1">
+                  <span className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">
+                    30+
+                  </span>
+                  <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">
+                    Personal Projects
+                  </h4>
+                </div>
+
+                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xl shadow-sm border border-indigo-200/60 dark:border-indigo-500/20 shrink-0">
+                  <FiFileText className="w-5 h-5" />
+                </div>
               </div>
 
-              <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xl shadow-sm border border-indigo-200/60 dark:border-indigo-500/20 shrink-0">
-                <FiFileText className="w-5 h-5" />
+              <div className="mt-4">
+                <ConsoleLogger />
               </div>
-            </div>
-
-            <div className="mt-4">
-              <ConsoleLogger />
             </div>
           </motion.div>
 
