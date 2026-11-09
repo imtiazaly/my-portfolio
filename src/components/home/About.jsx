@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FiCheckCircle, FiStar, FiFileText } from "react-icons/fi";
+import profile from "../../data/profile";
 
 const containerVariants = {
   hidden: {},
@@ -21,16 +22,7 @@ const cardVariants = {
   },
 };
 
-const LOG_MESSAGES = [
-  "system initializing...",
-  "mounting campaign-os...",
-  "verifying stack.config... [OK]",
-  "establishing WebSockets... connected",
-  "building laravue-portal... ready",
-  "loading computer-tracker... Electron active",
-  "compiling files... 30 projects verified",
-  "status check: active & ready"
-];
+const LOG_MESSAGES = profile.about.consoleLogs;
 
 const ConsoleLogger = () => {
   const [logs, setLogs] = useState([]);
@@ -54,7 +46,9 @@ const ConsoleLogger = () => {
   return (
     <div className="bg-slate-900 dark:bg-black/75 rounded-xl p-3 font-mono text-[10px] text-emerald-400 border border-slate-950 dark:border-white/[0.04] space-y-1 h-[58px] overflow-hidden select-none shadow-inner">
       {logs.length === 0 ? (
-        <div className="animate-pulse text-emerald-400/80">{"$ listening for updates..."}</div>
+        <div className="animate-pulse text-emerald-400/80">
+          {"$ listening for updates..."}
+        </div>
       ) : (
         logs.map((log, idx) => (
           <div key={idx} className="truncate text-emerald-400">
@@ -71,7 +65,10 @@ const ProgressCircle = () => {
   const isInView = useInView(ref, { once: false, margin: "-20px" });
 
   return (
-    <div ref={ref} className="relative w-14 h-14 shrink-0 flex items-center justify-center select-none">
+    <div
+      ref={ref}
+      className="relative w-14 h-14 shrink-0 flex items-center justify-center select-none"
+    >
       <svg className="w-full h-full transform -rotate-90">
         <circle
           cx="28"
@@ -102,13 +99,14 @@ const ProgressCircle = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 px-6 relative overflow-hidden bg-transparent">
-
+    <section
+      id="about"
+      className="py-24 px-6 relative overflow-hidden bg-transparent"
+    >
       {/* Background glow */}
       <div className="glow-node w-[350px] h-[350px] bg-indigo-500/5 left-[15%] bottom-[5%] rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-
         {/* Title */}
         <div className="text-center mb-16">
           <p className="text-sm font-bold uppercase tracking-[0.25em] text-indigo-500 dark:text-indigo-400 mb-3">
@@ -142,7 +140,9 @@ const About = () => {
               </div>
 
               <div className="text-xs font-mono font-bold text-slate-400 dark:text-slate-500 flex items-center gap-1.5 bg-white/20 dark:bg-[#121218]/40 border border-slate-200/30 dark:border-white/[0.04] px-3.5 py-1.5 rounded-lg shadow-sm">
-                <span className="text-indigo-500 dark:text-indigo-400 font-extrabold">&gt;_</span>
+                <span className="text-indigo-500 dark:text-indigo-400 font-extrabold">
+                  &gt;_
+                </span>
                 <span>profile.md</span>
               </div>
 
@@ -152,16 +152,18 @@ const About = () => {
             {/* Narrative Content */}
             <div className="p-6 sm:p-8 flex flex-col justify-center flex-grow space-y-4 md:space-y-5">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-snug">
-                Building clean web applications and responsive client-side user experiences.
+                Building clean web applications and responsive client-side user
+                experiences.
               </h3>
 
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                I am a Junior Full Stack Developer with professional experience building web features and client interfaces. Currently working at Softleed Company, I implement, maintain, and update responsive features across frontend frameworks, backend code, and relational databases.
-              </p>
-
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                My core development focus is on writing clean, modular code, building solid REST APIs, and collaborating with team members on client needs.
-              </p>
+              {profile.about.bioParagraphs.map((para, idx) => (
+                <p
+                  key={idx}
+                  className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base"
+                >
+                  {para}
+                </p>
+              ))}
             </div>
           </motion.div>
 
@@ -173,10 +175,10 @@ const About = () => {
             <div className="flex items-center justify-between w-full">
               <div className="space-y-1">
                 <span className="text-3xl font-extrabold bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent">
-                  1 Year
+                  {profile.about.experienceValue}
                 </span>
                 <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100">
-                  Experience
+                  {profile.about.experienceLabel}
                 </h4>
               </div>
 
@@ -184,9 +186,12 @@ const About = () => {
             </div>
 
             <div className="border-t border-slate-200/40 dark:border-white/[0.04] pt-3 mt-4">
-              <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">At Softleed Company</span>
+              <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                At Softleed Company
+              </span>
               <p className="text-xs text-slate-700 dark:text-slate-300 mt-1.5 leading-relaxed font-medium">
-                Joined as intern in July 2025; transitioned to full-time developer role in Sept 2025.
+                Joined as intern in July 2025; transitioned to full-time
+                developer role in Sept 2025.
               </p>
             </div>
           </motion.div>
@@ -228,22 +233,39 @@ const About = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full">
               {[
-                { text: "Responsive Web Design", color: "hover:border-cyan-500/50 hover:bg-cyan-500/[0.04] hover:text-cyan-600 dark:hover:text-cyan-400" },
-                { text: "Full-Stack REST APIs", color: "hover:border-red-500/50 hover:bg-red-500/[0.04] hover:text-red-600 dark:hover:text-red-400" },
-                { text: "Desktop Wrappers (Electron)", color: "hover:border-violet-500/50 hover:bg-violet-500/[0.04] hover:text-violet-600 dark:hover:text-violet-400" },
-                { text: "Modern Frontend Frameworks", color: "hover:border-indigo-500/50 hover:bg-indigo-500/[0.04] hover:text-indigo-600 dark:hover:text-indigo-400" },
+                {
+                  text: "Responsive Web Design",
+                  color:
+                    "hover:border-cyan-500/50 hover:bg-cyan-500/[0.04] hover:text-cyan-600 dark:hover:text-cyan-400",
+                },
+                {
+                  text: "Full-Stack REST APIs",
+                  color:
+                    "hover:border-red-500/50 hover:bg-red-500/[0.04] hover:text-red-600 dark:hover:text-red-400",
+                },
+                {
+                  text: "Desktop Wrappers (Electron)",
+                  color:
+                    "hover:border-violet-500/50 hover:bg-violet-500/[0.04] hover:text-violet-600 dark:hover:text-violet-400",
+                },
+                {
+                  text: "Modern Frontend Frameworks",
+                  color:
+                    "hover:border-indigo-500/50 hover:bg-indigo-500/[0.04] hover:text-indigo-600 dark:hover:text-indigo-400",
+                },
               ].map((item, idx) => (
                 <div
                   key={idx}
                   className={`flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-white/70 dark:bg-slate-900/60 transition-all duration-300 font-bold text-slate-800 dark:text-slate-200 select-none ${item.color}`}
                 >
                   <FiCheckCircle className="shrink-0 text-indigo-500 dark:text-indigo-400 w-4 h-4" />
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">{item.text}</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">
+                    {item.text}
+                  </span>
                 </div>
               ))}
             </div>
           </motion.div>
-
         </motion.div>
       </div>
     </section>
