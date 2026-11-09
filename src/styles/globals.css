@@ -37,9 +37,15 @@
   /* Muted Lavender */
 
   --shadow-sm: 0 1px 3px 0 rgba(120, 60, 200, 0.08);
-  --shadow-md: 0 4px 12px -1px rgba(120, 60, 200, 0.12), 0 2px 6px -1px rgba(255, 72, 176, 0.06);
-  --shadow-lg: 0 10px 25px -3px rgba(120, 60, 200, 0.15), 0 4px 10px -2px rgba(255, 72, 176, 0.08);
-  --shadow-xl: 0 20px 40px -5px rgba(120, 60, 200, 0.18), 0 10px 20px -5px rgba(255, 72, 176, 0.1);
+  --shadow-md:
+    0 4px 12px -1px rgba(120, 60, 200, 0.12),
+    0 2px 6px -1px rgba(255, 72, 176, 0.06);
+  --shadow-lg:
+    0 10px 25px -3px rgba(120, 60, 200, 0.15),
+    0 4px 10px -2px rgba(255, 72, 176, 0.08);
+  --shadow-xl:
+    0 20px 40px -5px rgba(120, 60, 200, 0.18),
+    0 10px 20px -5px rgba(255, 72, 176, 0.1);
 
   --transition-speed: 0.3s;
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -79,10 +85,18 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background-color: rgb(var(--background));
   color: rgb(var(--text-primary));
-  transition: background-color var(--transition-speed) var(--transition-smooth),
+  transition:
+    background-color var(--transition-speed) var(--transition-smooth),
     color var(--transition-speed) var(--transition-smooth);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -95,7 +109,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: "Outfit", "Inter", sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -111,12 +125,20 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgb(var(--color-primary)), rgb(var(--color-accent)));
+  background: linear-gradient(
+    180deg,
+    rgb(var(--color-primary)),
+    rgb(var(--color-accent))
+  );
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgb(var(--color-accent)), rgb(var(--color-cyan)));
+  background: linear-gradient(
+    180deg,
+    rgb(var(--color-accent)),
+    rgb(var(--color-cyan))
+  );
 }
 
 /* Magical text selection */
@@ -124,8 +146,6 @@ h6 {
   background-color: rgba(var(--color-primary), 0.3);
   color: rgb(var(--text-primary));
 }
-
-
 
 /* ==========================================================================
    PREMIUM GLASSMORPHISM PANELS
@@ -217,7 +237,6 @@ h6 {
 }
 
 @keyframes nebula-pulse {
-
   0%,
   100% {
     opacity: 0.06;
@@ -235,14 +254,30 @@ h6 {
 }
 
 .mesh-gradient-bg::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 10%, rgba(var(--color-primary), 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 90% 5%, rgba(var(--color-accent), 0.14) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 60% at 50% 100%, rgba(var(--color-cyan), 0.10) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(var(--color-gold), 0.07) 0%, transparent 50%);
+    radial-gradient(
+      ellipse 80% 60% at 10% 10%,
+      rgba(var(--color-primary), 0.18) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 90% 5%,
+      rgba(var(--color-accent), 0.14) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 60% at 50% 100%,
+      rgba(var(--color-cyan), 0.1) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 20% 80%,
+      rgba(var(--color-gold), 0.07) 0%,
+      transparent 50%
+    );
   background-size: 300% 300%;
   animation: aurora-drift 18s ease infinite;
   pointer-events: none;
@@ -259,7 +294,9 @@ h6 {
    ========================================================================== */
 
 .glow-text {
-  text-shadow: 0 0 25px rgba(var(--color-primary), 0.4), 0 0 50px rgba(var(--color-accent), 0.2);
+  text-shadow:
+    0 0 25px rgba(var(--color-primary), 0.4),
+    0 0 50px rgba(var(--color-accent), 0.2);
 }
 
 /* ==========================================================================
@@ -310,16 +347,18 @@ h6 {
 }
 
 .glow-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.25),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
   transform: skewX(-20deg);
   transition: all 0.65s ease;
   z-index: -1;
@@ -355,7 +394,10 @@ h6 {
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
   border-radius: 24px;
   overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
 .dark .terminal-card {
@@ -382,6 +424,9 @@ h6 {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
+/* -------------------------------------------------------------
+   REUSABLE MOVING NEON BORDER (HOVER-ONLY ACROSS ALL CARDS)
+---------------------------------------------------------------- */
 /* Sweeping rotating borders for extraordinary frames */
 @keyframes border-sweep {
   0% {
@@ -393,6 +438,7 @@ h6 {
   }
 }
 
+/* 1. Picture Card (Always spinning by default - as before) */
 .glow-spin-container {
   position: relative;
   overflow: hidden;
@@ -403,13 +449,45 @@ h6 {
   position: absolute;
   inset: -150%;
   z-index: -1;
-  background: conic-gradient(from 0deg,
-      transparent 30%,
-      rgba(var(--color-primary), 0.85) 45%,
-      rgba(var(--color-accent), 0.85) 55%,
-      transparent 70%);
+  background: conic-gradient(
+    from 0deg,
+    transparent 30%,
+    rgba(var(--color-primary), 0.85) 45%,
+    rgba(var(--color-accent), 0.85) 55%,
+    transparent 70%
+  );
   animation: border-sweep 7s linear infinite;
+  opacity: 1; /* Always visible */
   pointer-events: none;
+}
+
+/* 2. Reusable Cards (Only on Hover) */
+.glow-card-wrapper {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.glow-card-border {
+  position: absolute;
+  inset: -150%;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    transparent 30%,
+    rgba(99, 102, 241, 0.95) 45%,
+    rgba(236, 72, 153, 0.95) 55%,
+    transparent 70%
+  );
+  animation: border-sweep 4s linear infinite;
+  opacity: 0; /* Default band */
+  transition: opacity 0.4s ease-out;
+  pointer-events: none;
+}
+
+.glow-card-wrapper:hover .glow-card-border,
+.group:hover .glow-card-border {
+  opacity: 1; /* Sirf hover par */
 }
 
 /* Floating interactive badges with hardware acceleration */
@@ -438,7 +516,9 @@ h6 {
   transform: scale(1.08) !important;
   /* Overrides floating translation slightly */
   border-color: rgba(var(--color-primary), 0.6);
-  box-shadow: var(--shadow-lg), 0 0 18px rgba(var(--color-primary), 0.18);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 18px rgba(var(--color-primary), 0.18);
 }
 
 .dark .floating-badge {
@@ -448,12 +528,13 @@ h6 {
 
 .dark .floating-badge:hover {
   border-color: rgba(var(--color-accent), 0.6);
-  box-shadow: var(--shadow-lg), 0 0 18px rgba(var(--color-accent), 0.18);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 18px rgba(var(--color-accent), 0.18);
 }
 
 /* Pure CSS Floating Animations */
 @keyframes float-badge-y-1 {
-
   0%,
   100% {
     transform: translateY(0);
@@ -465,7 +546,6 @@ h6 {
 }
 
 @keyframes float-badge-y-2 {
-
   0%,
   100% {
     transform: translateY(0);
@@ -477,7 +557,6 @@ h6 {
 }
 
 @keyframes float-badge-y-3 {
-
   0%,
   100% {
     transform: translateY(0);
@@ -595,7 +674,6 @@ h6 {
 }
 
 @keyframes cursor-blink {
-
   0%,
   100% {
     opacity: 1;
@@ -638,7 +716,9 @@ html:not(.dark) .glass-panel,
 html:not(.dark) .bg-\[\#ffffff\] {
   background-color: #ffffff !important;
   border-color: #e2dcf2 !important;
-  box-shadow: 0 10px 25px -10px rgba(120, 60, 200, 0.05), 0 2px 5px rgba(120, 60, 200, 0.02) !important;
+  box-shadow:
+    0 10px 25px -10px rgba(120, 60, 200, 0.05),
+    0 2px 5px rgba(120, 60, 200, 0.02) !important;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
@@ -647,6 +727,8 @@ html:not(.dark) .glass-panel-hover:hover,
 html:not(.dark) .bg-\[\#ffffff\]:hover {
   background-color: #ffffff !important;
   border-color: rgba(167, 92, 255, 0.5) !important;
-  box-shadow: 0 20px 40px -10px rgba(167, 92, 255, 0.14), 0 0 15px rgba(167, 92, 255, 0.03) !important;
+  box-shadow:
+    0 20px 40px -10px rgba(167, 92, 255, 0.14),
+    0 0 15px rgba(167, 92, 255, 0.03) !important;
   transform: translateY(-4px) !important;
 }
