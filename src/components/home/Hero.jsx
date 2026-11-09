@@ -1,5 +1,14 @@
 import { motion } from "framer-motion";
-import { FiArrowRight, FiGithub, FiLinkedin, FiMail, FiLayout, FiServer, FiCpu, FiTerminal } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+  FiLayout,
+  FiServer,
+  FiCpu,
+  FiTerminal,
+} from "react-icons/fi";
 import Button from "../common/Button";
 import Typewriter from "../ui/Typewriter";
 import profile from "../../data/profile";
@@ -52,7 +61,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 py-24 lg:py-0 overflow-hidden mesh-gradient-bg transition-colors duration-500"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-16 lg:pb-20 overflow-hidden mesh-gradient-bg transition-colors duration-500"
     >
       {/* Multi-hue magical glow orbs */}
       <div className="glow-node w-[500px] h-[500px] bg-violet-500/20 left-[5%] top-[10%] rounded-full blur-[120px]" />
@@ -253,25 +262,25 @@ const Hero = () => {
             {/* Top-Left: React */}
             <div className="floating-badge animate-float-1 -top-1 -left-4 sm:-left-6">
               <FiLayout className="text-cyan-500 w-3.5 h-3.5" />
-              <span>React.js</span>
+              <span>React/Vue</span>
             </div>
 
             {/* Top-Right: Laravel */}
             <div className="floating-badge animate-float-2 -top-3 -right-4 sm:-right-6">
               <FiServer className="text-red-500 w-3.5 h-3.5" />
-              <span>Laravel</span>
+              <span>Laravel/Node</span>
             </div>
 
             {/* Bottom-Left: Electron */}
             <div className="floating-badge animate-float-3 bottom-12 -left-6 sm:-left-8">
               <FiCpu className="text-violet-500 w-3.5 h-3.5" />
-              <span>Electron.js</span>
+              <span>React Native</span>
             </div>
 
             {/* Bottom-Right: Tailwind */}
             <div className="floating-badge animate-float-4 bottom-0 -right-4 sm:-right-6">
               <FiTerminal className="text-indigo-500 w-3.5 h-3.5" />
-              <span>Tailwind CSS</span>
+              <span>Playwrite</span>
             </div>
           </div>
         </motion.div>
