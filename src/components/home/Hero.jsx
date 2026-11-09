@@ -2,13 +2,9 @@ import { motion } from "framer-motion";
 import { FiArrowRight, FiGithub, FiLinkedin, FiMail, FiLayout, FiServer, FiCpu, FiTerminal } from "react-icons/fi";
 import Button from "../common/Button";
 import Typewriter from "../ui/Typewriter";
+import profile from "../../data/profile";
 
-const words = [
-  "Full Stack Developer",
-  "Laravel Developer",
-  "React & Vue Developer",
-  "Electron.js Developer",
-];
+const words = profile.hero.typewriterWords;
 
 // Framer Motion Animation Variants for staggering content entry on scroll-in
 const containerVariants = {
@@ -99,7 +95,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-200 dark:border-[#262630] bg-white/50 dark:bg-[#121218]/50 backdrop-blur-sm text-xs font-semibold text-indigo-600 dark:text-indigo-400 shadow-sm"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Available for Freelance &amp; Roles</span>
+              <span>{profile.hero.status}</span>
             </motion.div>
 
             {/* Name Title with Editor Syntax Highlighting */}
