@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { FiAward, FiCheckCircle, FiCpu, FiTrendingUp } from "react-icons/fi";
-import achievements from "../../data/achievements";
+import profile from "../../data/profile";
+
+const achievements = profile.achievements;
 
 const getIcon = (id) => {
   switch (id) {
