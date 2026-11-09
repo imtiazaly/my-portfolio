@@ -12,6 +12,7 @@ import {
 import Button from "../common/Button";
 import Typewriter from "../ui/Typewriter";
 import profile from "../../data/profile";
+import SectionDivider from "../common/SectionDivider";
 
 const words = profile.hero.typewriterWords;
 
