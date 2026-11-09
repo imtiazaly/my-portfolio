@@ -6,10 +6,12 @@ import {
   FiCheckCircle,
   FiLayers,
   FiFileText,
-  FiExternalLink
+  FiExternalLink,
 } from "react-icons/fi";
 import skills from "../data/skills";
 import experience from "../data/experience";
+import certifications from "../data/certifications";
+import profile from "../data/profile";
 
 const containerVariants = {
   hidden: {},
@@ -84,12 +86,7 @@ const Resume = () => {
                 <span>Professional Profile</span>
               </h2>
               <p className="text-sm md:text-base text-slate-650 dark:text-[#beafdc] font-medium leading-relaxed relative z-10">
-                Detail-oriented and results-driven Junior Full Stack Developer
-                currently working at Softleed Company. Experienced in building,
-                maintaining, and updating web applications using Laravel, React,
-                Vue, and relational databases. Developed a diverse portfolio of
-                30 personal projects including frontend interfaces, web
-                workflows, and desktop utility applications.
+                {profile.resume.profileSummary}
               </p>
             </motion.div>
 

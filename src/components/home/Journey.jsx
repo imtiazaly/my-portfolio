@@ -1,48 +1,38 @@
 import { motion } from "framer-motion";
 import { FiBookOpen, FiLayers, FiCompass, FiGithub } from "react-icons/fi";
+import profile from "../../data/profile";
 
-const milestones = [
+const uiMeta = [
   {
-    phase: "01",
-    year: "2020 - 2022",
-    title: "Early Core Foundations",
-    description: "Began my programming journey. Focused on building a strong basic foundation by learning C++, HTML, CSS, JavaScript, PHP, and MySQL, culminating in a PHP-based web project.",
     icon: <FiBookOpen className="w-5 h-5" />,
     color: "from-blue-500 to-indigo-500",
     hoverColor: "group-hover:from-blue-500 group-hover:to-indigo-500",
     glowColor: "rgba(59, 130, 246, 0.25)",
   },
   {
-    phase: "02",
-    year: "2024 - 2025",
-    title: "Serious Commitment & Revision",
-    description: "After a break, seriously dedicated myself to development. Created my GitHub workspace, revised core HTML, CSS, and JS from scratch to build robust layout skills, and explored Bootstrap and Node.js.",
     icon: <FiGithub className="w-5 h-5" />,
     color: "from-indigo-500 to-pink-500",
     hoverColor: "group-hover:from-indigo-500 group-hover:to-pink-500",
     glowColor: "rgba(168, 85, 247, 0.25)",
   },
   {
-    phase: "03",
-    year: "Mid 2025",
-    title: "Softleed Turning Point",
-    description: "Joined Softleed Company as an intern. Mastered modern full-stack web architectures (Laravel, Vue.js, and React.js) through hands-on project experience, transitioning quickly to the official developer team.",
     icon: <FiLayers className="w-5 h-5" />,
     color: "from-pink-500 to-rose-500",
     hoverColor: "group-hover:from-pink-500 group-hover:to-rose-500",
     glowColor: "rgba(244, 63, 94, 0.25)",
   },
   {
-    phase: "04",
-    year: "2025 - Present",
-    title: "Production Projects & Automation",
-    description: "Contributed to healthcare systems and management dashboards using React/Node and Vue/Laravel. Advanced into QA automation testing (Playwright) and cross-platform desktop shells (Electron.js).",
     icon: <FiCompass className="w-5 h-5" />,
     color: "from-rose-500 to-amber-500",
     hoverColor: "group-hover:from-rose-500 group-hover:to-amber-500",
     glowColor: "rgba(245, 158, 11, 0.25)",
   },
 ];
+
+const milestones = profile.journey.map((item, idx) => ({
+  ...item,
+  ...uiMeta[idx],
+}));
 
 const containerVariants = {
   hidden: {},

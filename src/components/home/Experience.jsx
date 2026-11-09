@@ -1,76 +1,27 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiCalendar, FiCheckCircle, FiTerminal, FiGitBranch, FiLayers, FiPlay, FiPause } from "react-icons/fi";
+import experience from "../../data/experience";
 
-const milestones = [
-  {
-    id: 1, // Node 2
-    role: "Full Stack Developer",
-    company: "Softleed Company",
-    period: "Sep 2025 - Present",
-    commit: "git commit -m \"feat: promote to full-time developer & build web features\"",
-    description: "Promoted to a full-time developer role after a successful internship, demonstrating rapid growth, adaptability, and high coding standards. Contributing to core web features for company clients.",
-    highlights: [
-      "Building and maintaining client-facing web applications, interactive dashboards, and backend APIs.",
-      "Developing full-stack features using React, Vue, Laravel, and SQL databases.",
-      "Crafting premium, responsive user interfaces and optimizing REST API routes.",
-      "Writing clean, modular, and well-tested code in collaborative team workflows."
-    ],
-    skills: [
-      { name: "Laravel Web Apps", value: 86 },
-      { name: "React & Vue UI Components", value: 85 },
-      { name: "SQL Databases & Queries", value: 82 },
-      { name: "RESTful APIs & Integration", value: 84 }
-    ],
+const uiMeta = {
+  1: {
     themeColor: "from-indigo-500 to-violet-600",
     glowColor: "rgba(99, 102, 241, 0.15)",
-    badgeText: "Full-Time Role"
   },
-  {
-    id: 2, // Node 1
-    role: "Full Stack Developer Intern",
-    company: "Softleed Company",
-    period: "Jul 2025 - Aug 2025",
-    commit: "git checkout -b internship && git commit -m \"init: full-stack developer internship\"",
-    description: "Completed an intensive 2-month professional internship. Focused on adapting to enterprise coding conventions, setting up development environments, and learning framework architectures.",
-    highlights: [
-      "Gained hands-on experience with MVC frameworks, routing, and database schema designs.",
-      "Collaborated with senior engineers on feature implementations and bug fixes.",
-      "Learned version control practices, Git workflows, and testing frameworks."
-    ],
-    skills: [
-      { name: "Laravel MVC Architecture", value: 85 },
-      { name: "React & Vue Frontends", value: 80 },
-      { name: "SQL Database Design", value: 75 },
-      { name: "Git Workflows & Agile", value: 88 }
-    ],
+  2: {
     themeColor: "from-pink-500 to-rose-600",
     glowColor: "rgba(244, 63, 94, 0.15)",
-    badgeText: "Learning Phase"
   },
-  {
-    id: 3, // Node 3
-    role: "Automation & Multi-Stack Contributor",
-    company: "Softleed Company",
-    period: "Ongoing Contributions",
-    commit: "git log --oneline -n 1 // head -> origin/main: active contributor",
-    description: "Consistently delivering technical value by writing automated tests, building clean component structures, and quickly picking up new technologies like Playwright and Electron.js.",
-    highlights: [
-      "Actively writing automated end-to-end regression tests using Playwright to ensure application quality.",
-      "Developing responsive, clean views and database integrations across company projects.",
-      "Adapting rapidly to project-specific requirements, resolving bugs, and contributing to technical tasks."
-    ],
-    skills: [
-      { name: "QA Automation (Playwright)", value: 74 },
-      { name: "Desktop Apps (Electron.js)", value: 75 },
-      { name: "Multi-Stack Adaptability", value: 86 },
-      { name: "Bug Fixing & Maintenance", value: 84 }
-    ],
+  3: {
     themeColor: "from-emerald-500 to-teal-600",
     glowColor: "rgba(16, 185, 129, 0.15)",
-    badgeText: "Continuous Integration"
-  }
-];
+  },
+};
+
+const milestones = experience.map((item) => ({
+  ...item,
+  ...uiMeta[item.id],
+}));
 
 const containerVariants = {
   hidden: {},
