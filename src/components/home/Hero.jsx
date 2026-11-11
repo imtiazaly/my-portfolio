@@ -62,7 +62,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-16 lg:pb-20 overflow-hidden mesh-gradient-bg transition-colors duration-500"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 lg:pt-20 pb-16 lg:pb-20 overflow-hidden mesh-gradient-bg transition-colors duration-500"
     >
       {/* Multi-hue magical glow orbs */}
       <div className="glow-node w-[500px] h-[500px] bg-violet-500/20 left-[5%] top-[10%] rounded-full blur-[120px]" />
