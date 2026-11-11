@@ -258,83 +258,93 @@ const Skills = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`terminal-card p-6 flex flex-col justify-between hover:scale-[1.02] transition-all duration-300 relative group overflow-hidden min-h-[380px] h-full ${meta.borderClass}`}
+                className="glow-card-wrapper rounded-[24px] p-[1px] hover:-translate-y-1 transition-all duration-300 min-h-[380px] h-full"
               >
-                {/* Category-themed ambient glow background inside card */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background: `radial-gradient(circle at 10% 10%, ${meta.radialGlow} 0%, transparent 60%)`,
-                  }}
-                />
+                <div className="glow-card-border rounded-[24px]" />
 
-                <div className="relative z-10 space-y-4">
-                  {/* Header */}
-                  <div className="flex items-center gap-3.5">
-                    <div
-                      className={`flex items-center justify-center w-10 h-10 rounded-xl ${meta.iconBg} shrink-0 shadow-sm border border-slate-200/10 dark:border-white/[0.02]`}
-                    >
-                      {meta.icon}
+                <div
+                  className={`relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[23px] overflow-hidden p-6 flex flex-col justify-between group min-h-[380px]`}
+                >
+                  {/* Category-themed ambient glow background inside card */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at 10% 10%, ${meta.radialGlow} 0%, transparent 60%)`,
+                    }}
+                  />
+
+                  <div className="relative z-10 space-y-4">
+                    {/* Header */}
+                    <div className="flex items-center gap-3.5">
+                      <div
+                        className={`flex items-center justify-center w-10 h-10 rounded-xl ${meta.iconBg} shrink-0 shadow-sm border border-slate-200/10 dark:border-white/[0.02]`}
+                      >
+                        {meta.icon}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                        {skill.category}
+                      </h3>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
-                      {skill.category}
-                    </h3>
+
+                    {/* Subtitle / Context description */}
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                      {meta.desc}
+                    </p>
                   </div>
 
-                  {/* Subtitle / Context description */}
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                    {meta.desc}
-                  </p>
-                </div>
+                  {/* Skills Rating Progress Bars */}
+                  <div className="space-y-4 pt-6 relative z-10">
+                    {skill.items.map((item, idx) => {
+                      const skillKey =
+                        typeof item === "string" ? item.toLowerCase() : "";
+                      const skillName =
+                        typeof item === "string" ? item : item.name;
+                      const detail = skillDetails[skillKey] || {
+                        percentage: 80,
+                        label: "Proficient",
+                        color: "from-indigo-500 to-pink-500",
+                        text: "group-hover/row:text-indigo-500 dark:group-hover/row:text-indigo-400",
+                        glow: "rgba(99, 102, 241, 0.4)",
+                      };
 
-                {/* Skills Rating Progress Bars */}
-                <div className="space-y-4 pt-6 relative z-10">
-                  {skill.items.map((item, idx) => {
-                    const skillKey =
-                      typeof item === "string" ? item.toLowerCase() : "";
-                    const skillName =
-                      typeof item === "string" ? item : item.name;
-                    const detail = skillDetails[skillKey] || {
-                      percentage: 80,
-                      label: "Proficient",
-                      color: "from-indigo-500 to-pink-500",
-                      text: "group-hover/row:text-indigo-500 dark:group-hover/row:text-indigo-400",
-                      glow: "rgba(99, 102, 241, 0.4)",
-                    };
+                      return (
+                        <div
+                          key={idx}
+                          className="space-y-1.5 group/row transition-all duration-300 hover:translate-x-1.5 cursor-default"
+                        >
+                          <div className="flex items-center justify-between text-base sm:text-sm font-bold">
+                            <span
+                              className={`transition-colors duration-300 ${detail.text} text-slate-800 dark:text-slate-200`}
+                            >
+                              {skillName}
+                            </span>
+                            <span className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
+                              {detail.label} • {detail.percentage}%
+                            </span>
+                          </div>
 
-                    return (
-                      <div
-                        key={idx}
-                        className="space-y-1.5 group/row transition-all duration-300 hover:translate-x-1.5 cursor-default"
-                      >
-                        <div className="flex items-center justify-between text-base sm:text-sm font-bold">
-                          <span
-                            className={`transition-colors duration-300 ${detail.text} text-slate-800 dark:text-slate-200`}
-                          >
-                            {skillName}
-                          </span>
-                          <span className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono">
-                            {detail.label} • {detail.percentage}%
-                          </span>
+                          <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-900/60 rounded-full overflow-hidden border border-slate-200/40 dark:border-white/[0.02] shadow-inner">
+                            <motion.div
+                              className={`h-full bg-gradient-to-r ${detail.color} rounded-full`}
+                              initial={{ width: 0 }}
+                              whileInView={{
+                                width: `${detail.percentage}%`,
+                              }}
+                              viewport={{ once: false }}
+                              transition={{
+                                duration: 0.8,
+                                ease: "easeOut",
+                                delay: idx * 0.05,
+                              }}
+                              style={{
+                                boxShadow: `0 0 10px ${detail.glow}`,
+                              }}
+                            />
+                          </div>
                         </div>
-
-                        <div className="h-1.5 w-full bg-slate-100 dark:bg-slate-900/60 rounded-full overflow-hidden border border-slate-200/40 dark:border-white/[0.02] shadow-inner">
-                          <motion.div
-                            className={`h-full bg-gradient-to-r ${detail.color} rounded-full`}
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${detail.percentage}%` }}
-                            viewport={{ once: false }}
-                            transition={{
-                              duration: 0.8,
-                              ease: "easeOut",
-                              delay: idx * 0.05,
-                            }}
-                            style={{ boxShadow: `0 0 10px ${detail.glow}` }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </motion.div>
             );
