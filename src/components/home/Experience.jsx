@@ -197,8 +197,8 @@ const Experience = () => {
                             layoutId="gitActiveNodeGlow"
                             transition={{
                               type: "spring",
-                              stiffness: 300,
-                              damping: 25,
+                              stiffness: 260,
+                              damping: 28,
                             }}
                           />
                         )}
@@ -219,7 +219,7 @@ const Experience = () => {
                         <text
                           x={nodeX + 24}
                           y={y - 2}
-                          className={`font-mono text-[11px] ${textColor} transition-colors duration-200`}
+                          className={`font-mono text-[11px] ${textColor} transition-colors duration-400`}
                         >
                           {m.badgeText || m.role}
                         </text>
@@ -316,10 +316,10 @@ const Experience = () => {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeNode}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.25 }}
+                    initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                    transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                     className="space-y-6"
                   >
                     {/* Commit Message log line */}
@@ -398,7 +398,11 @@ const Experience = () => {
                                   className="h-full bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full"
                                   initial={{ width: 0 }}
                                   animate={{ width: `${skill.value}%` }}
-                                  transition={{ duration: 0.8, delay: 0.15 }}
+                                  transition={{
+                                    duration: 0.8,
+                                    delay: 0.15,
+                                    ease: [0.22, 1, 0.36, 1],
+                                  }}
                                 />
                               </div>
                             </div>
