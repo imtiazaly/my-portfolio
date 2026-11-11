@@ -222,7 +222,7 @@ const SkillCard = ({ skill }) => {
         />
 
         {/* Header */}
-        <div className="relative z-10 space-y-8 shrink-0">
+        <div className="relative z-10 space-y-3 shrink-0">
           <div className="flex items-center gap-3.5">
             <div
               className={`flex items-center justify-center w-10 h-10 rounded-xl ${meta.iconBg} shrink-0 shadow-sm border border-slate-200/10 dark:border-white/[0.02]`}
@@ -233,13 +233,13 @@ const SkillCard = ({ skill }) => {
               {skill.category}
             </h3>
           </div>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium line-clamp-2">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
             {meta.desc}
           </p>
         </div>
 
         {/* Progress Bars (Scrollable if many items, keeping card height identical) */}
-        <div className="space-y-3 pt-4 relative z-10 flex-1 overflow-y-auto pr-1 overflow-x-hidden">
+        <div className="space-y-3 pt-4 mt-4 relative z-10 flex-1 overflow-y-auto pr-1 overflow-x-hidden">
           {skill.items.map((item, idx) => {
             const key = typeof item === "string" ? item.toLowerCase() : "";
             const name = typeof item === "string" ? item : item.name;
