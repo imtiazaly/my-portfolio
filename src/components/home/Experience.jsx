@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiCalendar, FiCheckCircle, FiTerminal, FiGitBranch, FiLayers, FiPlay, FiPause } from "react-icons/fi";
+import {
+  FiCalendar,
+  FiCheckCircle,
+  FiTerminal,
+  FiGitBranch,
+  FiLayers,
+  FiPlay,
+  FiPause,
+} from "react-icons/fi";
 import experience from "../../data/experience";
 
 const uiMeta = {
@@ -44,30 +52,36 @@ const itemVariants = {
 const Experience = () => {
   const [activeNode, setActiveNode] = useState(1);
   const [isPlaying, setIsPlaying] = useState(true);
-  const activeMilestone = milestones.find((m) => m.id === activeNode);
+  const activeMilestone =
+    milestones.find((m) => m.id === activeNode) || milestones[0];
 
+  // Dynamic Autoplay (cycles through all milestones automatically)
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isPlaying || milestones.length <= 1) return;
 
     const timer = setInterval(() => {
       setActiveNode((prev) => {
-        if (prev === 2) return 1; // Intern (2) -> Full-Time (1)
-        if (prev === 1) return 3; // Full-Time (1) -> Continuous (3)
-        return 2;                 // Continuous (3) -> Intern (2)
+        const currentIndex = milestones.findIndex((m) => m.id === prev);
+        const nextIndex = (currentIndex + 1) % milestones.length;
+        return milestones[nextIndex].id;
       });
-    }, 5500); // Transitions every 5.5 seconds
+    }, 5500);
 
     return () => clearInterval(timer);
-  }, [activeNode, isPlaying]);
+  }, [isPlaying]);
+
+  // Dynamic height calculation for the Git SVG based on node count
+  const svgHeight = Math.max(320, milestones.length * 80 + 30);
 
   return (
-    <section id="experience" className="py-24 px-6 relative overflow-hidden bg-transparent">
-
+    <section
+      id="experience"
+      className="py-24 px-6 relative overflow-hidden bg-transparent"
+    >
       {/* Background ambient glow */}
       <div className="glow-node w-[450px] h-[450px] bg-indigo-500/5 left-[-100px] top-[20%] rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-
         {/* Title */}
         <div className="text-center mb-16">
           <p className="text-sm font-bold uppercase tracking-[0.25em] text-indigo-500 dark:text-indigo-400 mb-3">
@@ -87,187 +101,160 @@ const Experience = () => {
           viewport={{ once: false, amount: 0.08 }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
         >
-
-          {/* Left Column: SVG Git branch visualizer */}
+          {/* Left Column: Dynamic & Scrollable SVG Git branch visualizer */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-4 flex flex-col items-center glass-panel p-6 rounded-2xl border border-slate-200/60 dark:border-white/[0.04]"
+            className="lg:col-span-4 glow-card-wrapper rounded-[24px] p-[1px] h-[680px] w-full"
           >
-            <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6 flex items-center gap-1.5 self-start select-none">
-              <FiGitBranch className="text-indigo-500" />
-              <span>Git Branch Roadmap</span>
-            </h3>
+            <div className="glow-card-border rounded-[24px]" />
 
-            {/* Mobile / Small Screens Horizontal Graph */}
-            <div className="block lg:hidden w-full overflow-x-auto scrollbar-none py-2 select-none">
-              <div className="w-[320px] mx-auto relative">
-                <svg className="w-full h-20" viewBox="0 0 320 80">
-                  {/* Base Lines (Main branch and Internship split) */}
+            <div className="relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[23px] overflow-hidden p-6 flex flex-col justify-between items-center">
+              {/* Header */}
+              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4 flex items-center gap-1.5 self-start select-none shrink-0">
+                <FiGitBranch className="text-indigo-500" />
+                <span>Git Branch Roadmap</span>
+              </h3>
+
+              {/* Scrollable Git Branch Node Area */}
+              <div className="w-full flex-1 overflow-y-auto pr-1 overflow-x-hidden flex justify-center">
+                <svg
+                  className="w-full"
+                  style={{ height: `${svgHeight}px`, minWidth: "240px" }}
+                  viewBox={`0 0 240 ${svgHeight}`}
+                >
+                  {/* Main trunk line */}
                   <path
-                    d="M 20,25 L 300,25"
+                    d={`M 45,20 L 45,${svgHeight - 20}`}
                     className="stroke-slate-200 dark:stroke-slate-800"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    fill="transparent"
-                  />
-                  <path
-                    d="M 40,25 C 40,25 55,55 80,55 L 120,55 C 145,55 160,25 160,25"
-                    className="stroke-pink-200/50 dark:stroke-pink-500/15"
-                    strokeWidth="4"
+                    strokeWidth="3.5"
                     strokeLinecap="round"
                     fill="transparent"
                   />
 
-                  {/* Active Highlight Line Segments */}
-                  {activeNode === 1 && (
-                    <motion.path
-                      d="M 20,25 L 220,25"
-                      className="stroke-indigo-500/40 dark:stroke-indigo-400/40"
-                      strokeWidth="4"
-                      fill="transparent"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  )}
-                  {activeNode === 3 && (
-                    <motion.path
-                      d="M 20,25 L 280,25"
-                      className="stroke-emerald-500/40 dark:stroke-emerald-400/40"
-                      strokeWidth="4"
-                      fill="transparent"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  )}
+                  {/* Dynamic Nodes and Connection Curves */}
+                  {milestones.map((m, idx) => {
+                    const y = 45 + idx * 80;
+                    const isBranch =
+                      m.id === 2 ||
+                      m.badgeText?.toLowerCase().includes("intern") ||
+                      m.role?.toLowerCase().includes("intern");
+                    const nodeX = isBranch ? 85 : 45;
+                    const isActive = activeNode === m.id;
+                    const strokeColor = isBranch
+                      ? "stroke-pink-500/30"
+                      : "stroke-indigo-500/30";
+                    const activeColor = isBranch
+                      ? "fill-pink-500"
+                      : "fill-indigo-500";
+                    const textColor = isActive
+                      ? isBranch
+                        ? "fill-pink-600 dark:fill-pink-400 font-bold"
+                        : "fill-indigo-600 dark:fill-indigo-400 font-bold"
+                      : "fill-slate-500 dark:fill-slate-400 font-semibold";
 
-                  {/* Node 1: Internship (x = 100, y = 55) */}
-                  <g onClick={() => setActiveNode(2)} className="cursor-pointer">
-                    <circle cx="100" cy="55" r="14" className="fill-white dark:fill-[#080416] stroke-pink-500/20" strokeWidth="2" />
-                    {activeNode === 2 && (
-                      <motion.circle cx="100" cy="55" r="10" className="fill-pink-500" layoutId="mobileGlowCircle" />
-                    )}
-                    <circle cx="100" cy="55" r="5" className={activeNode === 2 ? "fill-white" : "fill-slate-300 dark:fill-slate-600"} />
-                  </g>
+                    return (
+                      <g
+                        key={m.id}
+                        onClick={() => setActiveNode(m.id)}
+                        className="cursor-pointer group select-none"
+                      >
+                        {/* Branch Curve if separated node */}
+                        {isBranch && (
+                          <path
+                            d={`M 45,${y - 40} C 45,${y - 20} 85,${y - 20} 85,${y} C 85,${y + 20} 45,${y + 20} 45,${y + 40}`}
+                            className="stroke-pink-200/70 dark:stroke-pink-500/25"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            fill="transparent"
+                          />
+                        )}
 
-                  {/* Node 2: Full-Time (x = 220, y = 25) */}
-                  <g onClick={() => setActiveNode(1)} className="cursor-pointer">
-                    <circle cx="220" cy="25" r="14" className="fill-white dark:fill-[#080416] stroke-indigo-500/20" strokeWidth="2" />
-                    {activeNode === 1 && (
-                      <motion.circle cx="220" cy="25" r="10" className="fill-indigo-500" layoutId="mobileGlowCircle" />
-                    )}
-                    <circle cx="220" cy="25" r="5" className={activeNode === 1 ? "fill-white" : "fill-slate-300 dark:fill-slate-600"} />
-                  </g>
+                        {/* Click target hit-box */}
+                        <rect
+                          x="20"
+                          y={y - 25}
+                          width="210"
+                          height="50"
+                          fill="transparent"
+                        />
 
-                  {/* Node 3: Present (x = 280, y = 25) */}
-                  <g onClick={() => setActiveNode(3)} className="cursor-pointer">
-                    <circle cx="280" cy="25" r="14" className="fill-white dark:fill-[#080416] stroke-emerald-500/20" strokeWidth="2" />
-                    {activeNode === 3 && (
-                      <motion.circle cx="280" cy="25" r="10" className="fill-emerald-500" layoutId="mobileGlowCircle" />
-                    )}
-                    <circle cx="280" cy="25" r="5" className={activeNode === 3 ? "fill-white" : "fill-slate-300 dark:fill-slate-600"} />
-                  </g>
+                        {/* Outer Circle Ring */}
+                        <circle
+                          cx={nodeX}
+                          cy={y}
+                          r="15"
+                          className={`fill-white dark:fill-[#0c0824] ${strokeColor} transition-transform duration-300 group-hover:scale-110`}
+                          strokeWidth="2"
+                        />
 
-                  {/* Labels */}
-                  <text x="100" y="78" textAnchor="middle" className="font-mono text-[9px] font-bold fill-slate-500 dark:fill-slate-400">Intern</text>
-                  <text x="220" y="12" textAnchor="middle" className="font-mono text-[9px] font-bold fill-slate-500 dark:fill-slate-400">Engineer</text>
-                  <text x="280" y="12" textAnchor="middle" className="font-mono text-[9px] font-bold fill-slate-500 dark:fill-slate-400">HEAD</text>
+                        {/* Active Glowing Circle Indicator */}
+                        {isActive && (
+                          <motion.circle
+                            cx={nodeX}
+                            cy={y}
+                            r="10"
+                            className={activeColor}
+                            layoutId="gitActiveNodeGlow"
+                            transition={{
+                              type: "spring",
+                              stiffness: 260,
+                              damping: 28,
+                            }}
+                          />
+                        )}
+
+                        {/* Center Dot */}
+                        <circle
+                          cx={nodeX}
+                          cy={y}
+                          r="5"
+                          className={
+                            isActive
+                              ? "fill-white"
+                              : "fill-slate-300 dark:fill-slate-600 group-hover:fill-indigo-400"
+                          }
+                        />
+
+                        {/* Milestone Badge Text */}
+                        <text
+                          x={nodeX + 24}
+                          y={y - 2}
+                          className={`font-mono text-[11px] ${textColor} transition-colors duration-400`}
+                        >
+                          {m.badgeText || m.role}
+                        </text>
+
+                        {/* Period / Date subtitle */}
+                        <text
+                          x={nodeX + 24}
+                          y={y + 14}
+                          className="font-mono text-[9px] fill-slate-400 dark:fill-slate-500 select-none"
+                        >
+                          {m.period}
+                        </text>
+                      </g>
+                    );
+                  })}
                 </svg>
               </div>
+
+              {/* Footer Hint */}
+              <p className="text-[10px] font-medium font-mono text-slate-400 dark:text-slate-500 pt-3 text-center select-none shrink-0 border-t border-slate-200/40 dark:border-white/[0.04] w-full">
+                Softleed timeline (click nodes to inspect)
+              </p>
             </div>
-
-            {/* Desktop Vertical Graph */}
-            <div className="hidden lg:flex items-center justify-center w-full h-[320px] select-none">
-              <svg className="w-full h-full" viewBox="0 0 160 300">
-                {/* Main Branch line */}
-                <path
-                  d="M 50,280 L 50,20"
-                  className="stroke-slate-200 dark:stroke-slate-800"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  fill="transparent"
-                />
-
-                {/* Internship Branch Curve */}
-                <path
-                  d="M 50,260 C 50,260 90,245 90,220 L 90,200 C 90,175 50,160 50,160"
-                  className="stroke-pink-200/50 dark:stroke-pink-500/15"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  fill="transparent"
-                />
-
-                {/* Active Highlight Line Segments */}
-                {activeNode === 1 && (
-                  <motion.path
-                    d="M 50,280 L 50,140"
-                    className="stroke-indigo-500/40 dark:stroke-indigo-400/40"
-                    strokeWidth="4"
-                    fill="transparent"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                )}
-                {activeNode === 3 && (
-                  <motion.path
-                    d="M 50,280 L 50,60"
-                    className="stroke-emerald-500/40 dark:stroke-emerald-400/40"
-                    strokeWidth="4"
-                    fill="transparent"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                )}
-
-                {/* Node 1: Internship Node (x=90, y=210) */}
-                <g onClick={() => setActiveNode(2)} className="cursor-pointer group">
-                  <circle cx="90" cy="210" r="16" className="fill-white dark:fill-[#080416] stroke-pink-500/15" strokeWidth="2" />
-                  {activeNode === 2 && (
-                    <motion.circle cx="90" cy="210" r="11" className="fill-pink-500/90" layoutId="desktopGlowCircle" />
-                  )}
-                  <circle cx="90" cy="210" r="5.5" className={activeNode === 2 ? "fill-white" : "fill-slate-300 dark:fill-slate-700 group-hover:fill-pink-500"} />
-                  <text x="115" y="214" className={`font-mono text-[10px] font-bold ${activeNode === 2 ? "fill-pink-600 dark:fill-pink-400" : "fill-slate-400 dark:fill-slate-500"}`}>internship</text>
-                </g>
-
-                {/* Node 2: Full-Time Node (x=50, y=140) */}
-                <g onClick={() => setActiveNode(1)} className="cursor-pointer group">
-                  <circle cx="50" cy="140" r="16" className="fill-white dark:fill-[#080416] stroke-indigo-500/15" strokeWidth="2" />
-                  {activeNode === 1 && (
-                    <motion.circle cx="50" cy="140" r="11" className="fill-indigo-500/90" layoutId="desktopGlowCircle" />
-                  )}
-                  <circle cx="50" cy="140" r="5.5" className={activeNode === 1 ? "fill-white" : "fill-slate-300 dark:fill-slate-700 group-hover:fill-indigo-500"} />
-                  <text x="75" y="144" className={`font-mono text-[10px] font-bold ${activeNode === 1 ? "fill-indigo-600 dark:fill-indigo-400" : "fill-slate-400 dark:fill-slate-500"}`}>main (Sep 2025)</text>
-                </g>
-
-                {/* Node 3: HEAD Node (x=50, y=60) */}
-                <g onClick={() => setActiveNode(3)} className="cursor-pointer group">
-                  <circle cx="50" cy="60" r="16" className="fill-white dark:fill-[#080416] stroke-emerald-500/15" strokeWidth="2" />
-                  {activeNode === 3 && (
-                    <motion.circle cx="50" cy="60" r="11" className="fill-emerald-500/90" layoutId="desktopGlowCircle" />
-                  )}
-                  <circle cx="50" cy="60" r="5.5" className={activeNode === 3 ? "fill-white" : "fill-slate-300 dark:fill-slate-700 group-hover:fill-emerald-500"} />
-                  <text x="75" y="64" className={`font-mono text-[10px] font-bold ${activeNode === 3 ? "fill-emerald-600 dark:fill-emerald-400" : "fill-slate-400 dark:fill-slate-500"}`}>HEAD (Present)</text>
-                </g>
-              </svg>
-            </div>
-
-            <p className="text-[10px] font-medium font-mono text-slate-400 dark:text-slate-500 mt-4 text-center select-none">
-              Softleed timeline (click nodes to inspect)
-            </p>
           </motion.div>
 
-          {/* Right Column: Terminal File Inspector Card */}
+          {/* Right Column: Terminal File Inspector Card (Static Uniform Height) */}
           <motion.div
             variants={itemVariants}
-            className="lg:col-span-8"
+            className="lg:col-span-8 glow-card-wrapper rounded-[24px] p-[1px] h-[680px] w-full"
           >
-            <div className="terminal-card flex flex-col w-full min-h-[380px] shadow-2xl relative">
+            <div className="glow-card-border rounded-[24px]" />
 
+            <div className="relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border border-slate-200 dark:border-[#2d1e5a] rounded-[23px] overflow-hidden flex flex-col shadow-2xl">
               {/* Terminal Title Bar */}
-              <div className="terminal-header px-6 py-4 flex items-center justify-between select-none">
+              <div className="terminal-header px-6 py-4 flex items-center justify-between select-none shrink-0 border-b border-slate-200/60 dark:border-white/[0.06]">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]" />
                   <span className="w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dfa023]" />
@@ -285,12 +272,17 @@ const Experience = () => {
                     onClick={() => setIsPlaying(!isPlaying)}
                     className={`
                       flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-[9px] font-extrabold uppercase tracking-wider transition-all duration-350 shadow-sm cursor-pointer select-none active:scale-95
-                      ${isPlaying 
-                        ? "bg-emerald-500/10 dark:bg-emerald-500/20 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 hover:border-emerald-500/50 hover:shadow-[0_0_10px_rgba(16,185,129,0.15)] animate-pulse" 
-                        : "bg-amber-500/10 dark:bg-amber-500/20 border-amber-500/30 text-amber-600 dark:text-amber-400 hover:border-amber-500/50 hover:shadow-[0_0_10px_rgba(245,158,11,0.15)]"
+                      ${
+                        isPlaying
+                          ? "bg-emerald-500/10 dark:bg-emerald-500/20 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 hover:border-emerald-500/50 hover:shadow-[0_0_10px_rgba(16,185,129,0.15)] animate-pulse"
+                          : "bg-amber-500/10 dark:bg-amber-500/20 border-amber-500/30 text-amber-600 dark:text-amber-400 hover:border-amber-500/50 hover:shadow-[0_0_10px_rgba(245,158,11,0.15)]"
                       }
                     `}
-                    title={isPlaying ? "Click to Pause Autoplay Rotation" : "Click to Start Autoplay Rotation"}
+                    title={
+                      isPlaying
+                        ? "Click to Pause Autoplay Rotation"
+                        : "Click to Start Autoplay Rotation"
+                    }
                   >
                     {isPlaying ? (
                       <>
@@ -319,21 +311,25 @@ const Experience = () => {
                 </div>
               </div>
 
-              {/* Dynamic Content Panel */}
-              <div className="p-6 md:p-8 flex-grow">
+              {/* Dynamic Content Panel (Fixed height with smooth internal scroll) */}
+              <div className="p-6 md:p-8 flex-1 overflow-y-auto pr-1 overflow-x-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeNode}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    transition={{ duration: 0.3 }}
+                    initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+                    transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                     className="space-y-6"
                   >
                     {/* Commit Message log line */}
                     <div className="font-mono text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-black/30 border border-slate-200/20 dark:border-white/[0.02] p-3 rounded-xl flex items-start gap-2.5 shadow-inner">
-                      <span className="text-indigo-500 font-bold shrink-0">$</span>
-                      <span className="text-slate-700 dark:text-slate-200 leading-relaxed break-all select-all">{activeMilestone.commit}</span>
+                      <span className="text-indigo-500 font-bold shrink-0">
+                        $
+                      </span>
+                      <span className="text-slate-700 dark:text-slate-200 leading-relaxed break-all select-all">
+                        {activeMilestone.commit}
+                      </span>
                     </div>
 
                     {/* Role / Period Header */}
@@ -347,7 +343,7 @@ const Experience = () => {
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-white/[0.04] px-4 py-2 rounded-full w-fit shadow-sm select-none">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-white/[0.04] px-4 py-2 rounded-full w-fit shadow-sm select-none shrink-0">
                         <FiCalendar className="text-indigo-500 dark:text-indigo-400" />
                         <span>{activeMilestone.period}</span>
                       </div>
@@ -366,12 +362,17 @@ const Experience = () => {
                             Key Accomplishments
                           </h5>
                           <ul className="space-y-2.5">
-                            {activeMilestone.highlights.map((highlight, idx) => (
-                              <li key={idx} className="flex items-start gap-3 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-                                <FiCheckCircle className="w-4 h-4 text-indigo-500 dark:text-indigo-400 mt-0.5 shrink-0" />
-                                <span>{highlight}</span>
-                              </li>
-                            ))}
+                            {activeMilestone.highlights.map(
+                              (highlight, idx) => (
+                                <li
+                                  key={idx}
+                                  className="flex items-start gap-3 text-xs text-slate-700 dark:text-slate-300 leading-relaxed"
+                                >
+                                  <FiCheckCircle className="w-4 h-4 text-indigo-500 dark:text-indigo-400 mt-0.5 shrink-0" />
+                                  <span>{highlight}</span>
+                                </li>
+                              ),
+                            )}
                           </ul>
                         </div>
                       </div>
@@ -388,14 +389,20 @@ const Experience = () => {
                             <div key={idx} className="space-y-1.5">
                               <div className="flex items-center justify-between text-[11px] font-bold text-slate-800 dark:text-slate-200">
                                 <span>{skill.name}</span>
-                                <span className="font-mono">{skill.value}%</span>
+                                <span className="font-mono">
+                                  {skill.value}%
+                                </span>
                               </div>
                               <div className="h-1.5 w-full bg-slate-200 dark:bg-slate-800/80 rounded-full overflow-hidden select-none">
                                 <motion.div
                                   className="h-full bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full"
                                   initial={{ width: 0 }}
                                   animate={{ width: `${skill.value}%` }}
-                                  transition={{ duration: 0.8, delay: 0.15 }}
+                                  transition={{
+                                    duration: 0.8,
+                                    delay: 0.15,
+                                    ease: [0.22, 1, 0.36, 1],
+                                  }}
                                 />
                               </div>
                             </div>
@@ -403,16 +410,12 @@ const Experience = () => {
                         </div>
                       </div>
                     </div>
-
                   </motion.div>
                 </AnimatePresence>
               </div>
-
             </div>
           </motion.div>
-
         </motion.div>
-
       </div>
     </section>
   );
