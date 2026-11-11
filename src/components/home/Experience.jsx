@@ -116,7 +116,7 @@ const Experience = () => {
               </h3>
 
               {/* Scrollable Git Branch Node Area */}
-              <div className="w-full flex-1 overflow-y-auto pr-1 overflow-x-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-slate-200/50 dark:[&::-webkit-scrollbar-track]:bg-white/[0.06] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-indigo-500/50 hover:[&::-webkit-scrollbar-thumb]:bg-indigo-500 [&::-webkit-scrollbar-thumb]:rounded-full flex justify-center">
+              <div className="w-full flex-1 overflow-y-auto pr-1 overflow-x-hidden flex justify-center">
                 <svg
                   className="w-full"
                   style={{ height: `${svgHeight}px`, minWidth: "240px" }}
@@ -312,7 +312,7 @@ const Experience = () => {
               </div>
 
               {/* Dynamic Content Panel (Fixed height with smooth internal scroll) */}
-              <div className="p-6 md:p-8 flex-1 overflow-y-auto pr-2 overflow-x-hidden [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-slate-200/50 dark:[&::-webkit-scrollbar-track]:bg-white/[0.06] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-indigo-500/50 hover:[&::-webkit-scrollbar-thumb]:bg-indigo-500 [&::-webkit-scrollbar-thumb]:rounded-full">
+              <div className="p-6 md:p-8 flex-1 overflow-y-auto pr-1 overflow-x-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeNode}
@@ -416,6 +416,5 @@ const Experience = () => {
     </section>
   );
 };
-
 
 export default Experience;
