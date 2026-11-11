@@ -248,7 +248,7 @@ const SkillCard = ({ skill }) => {
             return (
               <div
                 key={idx}
-                className="space-y-1.5 group/row transition-all duration-300 hover:translate-x-1.5 cursor-default"
+                className="space-y-1.5 pe-2 group/row transition-all duration-300 hover:translate-x-1.5 cursor-default"
               >
                 <div className="flex items-center justify-between text-xs sm:text-sm font-bold">
                   <span
@@ -331,7 +331,12 @@ const Skills = () => {
             return (
               <motion.div
                 key={skill.category}
-                className="absolute w-[85%] sm:w-[55%] md:w-[calc((100%-3rem)/3)] top-4"
+                onClick={() => !isCenter && setActiveIdx(index)}
+                className={`absolute w-[85%] sm:w-[55%] md:w-[calc((100%-3rem)/3)] top-4 ${
+                  !isCenter
+                    ? "cursor-pointer hover:opacity-75 transition-opacity"
+                    : "cursor-default"
+                }`}
                 initial={false}
                 animate={{
                   x: `calc(${diff * 100}% + ${diff * 1.5}rem)`,
