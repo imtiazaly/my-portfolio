@@ -135,60 +135,70 @@ const Journey = () => {
                   </span>
                 </div>
 
-                {/* Card Container */}
-                <div
-                  className={`bg-[#ffffff] dark:bg-[#160f38] border rounded-2xl p-4 md:p-6 grid md:grid-cols-12 gap-4 md:gap-6 items-center transition-all duration-500 relative w-full h-full overflow-hidden ${
-                    isCenter
-                      ? "border-indigo-500/60 dark:border-indigo-400/50 shadow-[0_15px_40px_rgba(99,102,241,0.08)] dark:shadow-[0_15px_40px_rgba(167,92,255,0.2)]"
-                      : "border-slate-200 dark:border-[#2d1e5a]"
-                  }`}
-                >
-                  {/* Category-themed glowing spot background */}
+                {/* Outer Glow Wrapper */}
+                <div className="glow-card-wrapper rounded-[20px] p-[1px] w-full h-full">
+                  {/* Moving Neon Border: ONLY active on Center Card (No hover needed) */}
                   <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-2xl"
-                    style={{
-                      background: `radial-gradient(circle at 10% 10%, ${stone.glowColor} 0%, transparent 60%)`,
-                    }}
+                    className={`glow-card-border rounded-[20px] transition-opacity duration-500 ${
+                      isCenter ? "!opacity-100" : "!opacity-0"
+                    }`}
                   />
 
-                  {/* Year and Icon Column */}
-                  <div className="md:col-span-3 space-y-2 relative z-10 select-none">
-                    <span
-                      className={`inline-flex text-[10px] font-extrabold tracking-widest uppercase text-white bg-gradient-to-r ${stone.color} px-3 py-1 rounded-full shadow-sm`}
-                    >
-                      {stone.year}
-                    </span>
+                  {/* Inner Content Card (Solid Opaque, Zero bleed) */}
+                  <div
+                    className={`relative z-10 w-full h-full bg-[#ffffff] dark:bg-[#160f38] border ${
+                      isCenter
+                        ? "border-indigo-500/40 dark:border-indigo-400/30 shadow-[0_15px_40px_rgba(99,102,241,0.12)] dark:shadow-[0_15px_40px_rgba(167,92,255,0.25)]"
+                        : "border-slate-200 dark:border-[#2d1e5a]"
+                    } rounded-[19px] p-4 md:p-6 grid md:grid-cols-12 gap-4 md:gap-6 items-center overflow-hidden transition-all duration-500`}
+                  >
+                    {/* Category-themed glowing spot background */}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[19px]"
+                      style={{
+                        background: `radial-gradient(circle at 10% 10%, ${stone.glowColor} 0%, transparent 60%)`,
+                      }}
+                    />
 
-                    <div className="flex items-center gap-2.5">
-                      <div
-                        className={`flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-xl bg-slate-100 dark:bg-slate-900/60 shadow-inner border border-slate-200/10 dark:border-white/[0.02] transition-colors duration-300 ${
+                    {/* Year and Icon Column */}
+                    <div className="md:col-span-3 space-y-2 relative z-10 select-none">
+                      <span
+                        className={`inline-flex text-[10px] font-extrabold tracking-widest uppercase text-white bg-gradient-to-r ${stone.color} px-3 py-1 rounded-full shadow-sm`}
+                      >
+                        {stone.year}
+                      </span>
+
+                      <div className="flex items-center gap-2.5">
+                        <div
+                          className={`flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-xl bg-slate-100 dark:bg-slate-900/60 shadow-inner border border-slate-200/10 dark:border-white/[0.02] transition-colors duration-300 ${
+                            isCenter
+                              ? "bg-gradient-to-br from-indigo-500 to-pink-500 text-white"
+                              : "text-slate-600 dark:text-[#beafdc]"
+                          }`}
+                        >
+                          {stone.icon}
+                        </div>
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                          Milestone
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Text Details Column */}
+                    <div className="md:col-span-9 space-y-1.5 relative z-10">
+                      <h3
+                        className={`text-base md:text-xl font-extrabold leading-snug transition-colors duration-300 ${
                           isCenter
-                            ? "bg-gradient-to-br from-indigo-500 to-pink-500 text-white"
-                            : "text-slate-600 dark:text-[#beafdc]"
+                            ? "text-indigo-600 dark:text-indigo-400"
+                            : "text-slate-900 dark:text-[#f0ebff]"
                         }`}
                       >
-                        {stone.icon}
-                      </div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                        Milestone
-                      </span>
+                        {stone.title}
+                      </h3>
+                      <p className="text-xs md:text-sm text-slate-650 dark:text-[#beafdc] font-medium leading-relaxed line-clamp-2">
+                        {stone.description}
+                      </p>
                     </div>
-                  </div>
-
-                  {/* Text Details Column */}
-                  <div className="md:col-span-9 space-y-1.5 relative z-10">
-                    <h3
-                      className={`text-base md:text-xl font-extrabold leading-snug transition-colors duration-300 ${
-                        isCenter
-                          ? "text-indigo-600 dark:text-indigo-400"
-                          : "text-slate-900 dark:text-[#f0ebff]"
-                      }`}
-                    >
-                      {stone.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-slate-650 dark:text-[#beafdc] font-medium leading-relaxed line-clamp-2">
-                      {stone.description}
-                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -214,6 +224,6 @@ const Journey = () => {
       </div>
     </section>
   );
-};;
+};
 
 export default Journey;
