@@ -7,6 +7,7 @@ import Journey from "../components/home/Journey";
 import Achievements from "../components/home/Achievements";
 import Contact from "../components/home/Contact";
 import SectionDivider from "../components/common/SectionDivider";
+import Certifications from "../components/home/Certifications";
 
 const Home = () => {
   return (
@@ -23,7 +24,7 @@ const Home = () => {
       <SectionDivider />
       <Journey />
       <SectionDivider />
-      <Achievements />
+      <Certifications />
       <SectionDivider />
       <Contact />
     </>
