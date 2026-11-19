@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FiAward,
@@ -52,6 +52,20 @@ const Certifications = () => {
   const total = certifications.length;
 
   const current = certifications[activeIdx] || certifications[0];
+
+  const tabsContainerRef = useRef(null);
+  const tabRefs = useRef([]);
+
+  // Auto-center active tab in horizontal dock when certificate changes
+  useEffect(() => {
+    if (tabRefs.current[activeIdx]) {
+      tabRefs.current[activeIdx].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeIdx]);
 
   const paginate = (newDirection) => {
     let nextIdx = activeIdx + newDirection;
@@ -237,30 +251,59 @@ const Certifications = () => {
           </div>
         </div>
 
-        {/* ─── SHOWROOM SELECTOR PEDESTAL BAR (ALL CERTIFICATES) ─── */}
-        <div className="mt-8 flex flex-wrap justify-center items-center gap-2 select-none">
-          {certifications.map((item, idx) => {
-            const isSelected = idx === activeIdx;
+        {/* ─── SHOWROOM SELECTOR PEDESTAL BAR (SCALABLE DOCK FOR 25-30+ CERTIFICATES) ─── */}
+        <div className="mt-8 relative max-w-4xl mx-auto select-none">
+          {/* Top Counter Bar */}
+          <div className="flex items-center justify-between px-4 pb-3 text-xs font-mono font-bold text-slate-500 dark:text-slate-400">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+              <span>COLLECTION OVERVIEW</span>
+            </span>
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-200 dark:bg-white/[0.06] text-slate-800 dark:text-slate-200 font-extrabold shadow-xs">
+              {String(activeIdx + 1).padStart(2, "0")} /{" "}
+              {String(total).padStart(2, "0")}
+            </span>
+          </div>
 
-            return (
-              <button
-                key={item.id}
-                onClick={() => jumpTo(idx)}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl border text-xs font-semibold transition-all duration-300 cursor-pointer ${
-                  isSelected
-                    ? "bg-amber-500 text-slate-950 font-bold border-amber-400 shadow-lg shadow-amber-500/20 scale-105"
-                    : "bg-white/70 dark:bg-[#160f38]/70 backdrop-blur-md border-slate-200 dark:border-[#2d1e5a] text-slate-600 dark:text-slate-300 hover:border-amber-400 hover:scale-102"
-                }`}
-              >
-                <span className="font-mono text-[10px] opacity-75">
-                  #{String(item.id).padStart(2, "0")}
-                </span>
-                <span className="truncate max-w-[140px]">
-                  {item.title.split(" ")[0]} {item.title.split(" ")[1] || ""}
-                </span>
-              </button>
-            );
-          })}
+          {/* Luxury Dock with Left & Right Edge Fade Masks */}
+          <div className="relative group/dock">
+            {/* Left Edge Gradient Fade */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-white dark:from-[#080514] to-transparent z-20 pointer-events-none rounded-l-2xl" />
+
+            {/* Right Edge Gradient Fade */}
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white dark:from-[#080514] to-transparent z-20 pointer-events-none rounded-r-2xl" />
+
+            {/* Horizontal Scrollable Rail (Always 1 single line, never wraps!) */}
+            <div
+              ref={tabsContainerRef}
+              className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-2 px-8"
+            >
+              {certifications.map((item, idx) => {
+                const isSelected = idx === activeIdx;
+
+                return (
+                  <button
+                    key={item.id}
+                    ref={(el) => (tabRefs.current[idx] = el)}
+                    onClick={() => jumpTo(idx)}
+                    className={`shrink-0 flex items-center gap-2 px-4 py-2 rounded-xl border text-xs font-semibold transition-all duration-300 cursor-pointer ${
+                      isSelected
+                        ? "bg-amber-500 text-slate-950 font-bold border-amber-400 shadow-lg shadow-amber-500/25 scale-105 z-10"
+                        : "bg-white/70 dark:bg-[#160f38]/70 backdrop-blur-md border-slate-200 dark:border-[#2d1e5a] text-slate-600 dark:text-slate-300 hover:border-amber-400 hover:scale-102"
+                    }`}
+                  >
+                    <span className="font-mono text-[10px] opacity-75">
+                      #{String(item.id).padStart(2, "0")}
+                    </span>
+                    <span className="truncate max-w-[150px]">
+                      {item.title.split(" ")[0]}{" "}
+                      {item.title.split(" ")[1] || ""}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
