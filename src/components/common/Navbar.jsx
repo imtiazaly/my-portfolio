@@ -53,10 +53,12 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-[#080416]/80 border-b border-slate-200/60 dark:border-[#2d1e5a]/60 transition-colors duration-300" style={{backdropFilter: 'blur(20px) saturate(180%)'}}>
+    <header
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/80 dark:bg-[#080416]/80 border-b border-slate-200/60 dark:border-[#2d1e5a]/60 transition-colors duration-300"
+      style={{ backdropFilter: "blur(20px) saturate(180%)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <a
             href="/"
@@ -66,7 +68,9 @@ export default function Navbar() {
             <span className="bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
               Imtiaz
             </span>
-            <span className="text-slate-800 dark:text-slate-200 font-extrabold font-mono text-xl">&lt;dev/&gt;</span>
+            <span className="text-slate-800 dark:text-slate-200 font-extrabold font-mono text-xl">
+              &lt;dev/&gt;
+            </span>
           </a>
 
           {/* Desktop Nav */}
@@ -79,15 +83,16 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link)}
                   className={`text-sm font-semibold tracking-wide transition-all duration-300 relative py-1 hover:text-indigo-500 dark:hover:text-indigo-400
-                    ${isRouteActive 
-                      ? "text-indigo-600 dark:text-indigo-400" 
-                      : "text-slate-600 dark:text-slate-300"
+                    ${
+                      isRouteActive
+                        ? "text-indigo-600 dark:text-indigo-400"
+                        : "text-slate-600 dark:text-slate-300"
                     }
                   `}
                 >
                   {link.name}
                   {isRouteActive && (
-                    <motion.span 
+                    <motion.span
                       layoutId="activeNavIndicator"
                       className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-indigo-500 to-pink-500 rounded-full"
                     />
