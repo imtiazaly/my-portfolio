@@ -144,120 +144,126 @@ const Certifications = () => {
             <FiChevronRight className="w-6 h-6" />
           </button>
 
-          {/* 3D Box Perspective Wrapper */}
-          <div
-            className="relative rounded-3xl overflow-hidden border border-slate-300/80 dark:border-white/[0.08] shadow-[0_25px_70px_rgba(0,0,0,0.15)] dark:shadow-[0_25px_80px_rgba(0,0,0,0.6)] bg-gradient-to-b from-slate-100 via-slate-200 to-slate-300 dark:from-[#0f0a24] dark:via-[#090518] dark:to-[#05030e] min-h-[580px] sm:min-h-[620px] flex flex-col justify-between"
-            style={{ perspective: "1200px" }}
-          >
-            {/* 1. CEILING ARCHITECTURE WITH SPOTLIGHT FIXTURES */}
-            <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-slate-300/60 dark:from-[#1b123d] to-transparent z-10 pointer-events-none flex justify-center">
-              {/* Dual Spotlights radiating down */}
-              <div className="w-40 sm:w-56 h-full bg-gradient-to-b from-amber-400/25 via-amber-400/5 to-transparent blur-xl -rotate-12 translate-x-12" />
-              <div className="w-40 sm:w-56 h-full bg-gradient-to-b from-indigo-400/25 via-indigo-400/5 to-transparent blur-xl rotate-12 -translate-x-12" />
-              {/* Center Downlight emitter */}
-              <div className="absolute top-0 w-32 h-2 rounded-b-full bg-amber-400/80 dark:bg-amber-300 blur-xs shadow-[0_0_25px_rgba(251,191,36,0.8)]" />
-            </div>
+          {/* 3D Showroom Outer Moving Neon Wrapper */}
+          <div className="glow-card-wrapper rounded-3xl p-[1px] shadow-[0_25px_70px_rgba(0,0,0,0.15)] dark:shadow-[0_25px_80px_rgba(0,0,0,0.6)]">
+            {/* Always-Active Moving Neon Border (Continuous Sweep) */}
+            <div className="glow-card-border rounded-3xl !opacity-100" />
 
-            {/* 2. ARCHITECTURAL SIDE WALLS (GIVING 3D DEPTH) */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-14 bg-gradient-to-r from-slate-400/30 dark:from-[#060312] to-transparent border-r border-slate-300/50 dark:border-white/[0.03] z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-14 bg-gradient-to-l from-slate-400/30 dark:from-[#060312] to-transparent border-l border-slate-300/50 dark:border-white/[0.03] z-10 pointer-events-none" />
+            {/* Inner Room Canvas */}
+            <div
+              className="relative z-10 rounded-[23px] overflow-hidden border border-slate-300/80 dark:border-white/[0.08] bg-gradient-to-b from-slate-100 via-slate-200 to-slate-300 dark:from-[#0f0a24] dark:via-[#090518] dark:to-[#05030e] min-h-[580px] sm:min-h-[620px] flex flex-col justify-between"
+              style={{ perspective: "1200px" }}
+            >
+              {/* 1. CEILING ARCHITECTURE WITH SPOTLIGHT FIXTURES */}
+              <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-slate-300/60 dark:from-[#1b123d] to-transparent z-10 pointer-events-none flex justify-center">
+                {/* Dual Spotlights radiating down */}
+                <div className="w-40 sm:w-56 h-full bg-gradient-to-b from-amber-400/25 via-amber-400/5 to-transparent blur-xl -rotate-12 translate-x-12" />
+                <div className="w-40 sm:w-56 h-full bg-gradient-to-b from-indigo-400/25 via-indigo-400/5 to-transparent blur-xl rotate-12 -translate-x-12" />
+                {/* Center Downlight emitter */}
+                <div className="absolute top-0 w-32 h-2 rounded-b-full bg-amber-400/80 dark:bg-amber-300 blur-xs shadow-[0_0_25px_rgba(251,191,36,0.8)]" />
+              </div>
 
-            {/* 3. CENTER SHOWROOM ARENA (WHERE THE TROPHY IS EXHIBITED) */}
-            <div className="relative flex-1 flex flex-col items-center justify-center p-4 sm:p-8 z-20">
-              <AnimatePresence custom={direction} mode="wait">
-                <motion.div
-                  key={current.id}
-                  custom={direction}
-                  variants={trophyVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  className="flex flex-col items-center max-w-lg w-full"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {/* ─── A. THE ACRYLIC CERTIFICATE FRAME (TROPHY TOP) ─── */}
-                  <div
-                    onClick={() => setIsModalOpen(true)}
-                    className="group/frame relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-2xl p-[3px] bg-gradient-to-br from-amber-400 via-slate-300 to-amber-600 dark:from-amber-400/80 dark:via-purple-500/40 dark:to-amber-600/80 shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(245,158,11,0.2)] cursor-pointer hover:scale-[1.02] transition-transform duration-500"
+              {/* 2. ARCHITECTURAL SIDE WALLS (GIVING 3D DEPTH) */}
+              <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-14 bg-gradient-to-r from-slate-400/30 dark:from-[#060312] to-transparent border-r border-slate-300/50 dark:border-white/[0.03] z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-14 bg-gradient-to-l from-slate-400/30 dark:from-[#060312] to-transparent border-l border-slate-300/50 dark:border-white/[0.03] z-10 pointer-events-none" />
+
+              {/* 3. CENTER SHOWROOM ARENA (WHERE THE TROPHY IS EXHIBITED) */}
+              <div className="relative flex-1 flex flex-col items-center justify-center p-4 sm:p-8 z-20">
+                <AnimatePresence custom={direction} mode="wait">
+                  <motion.div
+                    key={current.id}
+                    custom={direction}
+                    variants={trophyVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className="flex flex-col items-center max-w-lg w-full"
+                    style={{ transformStyle: "preserve-3d" }}
                   >
-                    {/* Corner Metallic Clamps */}
-                    <span className="absolute -top-1.5 -left-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
-                    <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
-                    <span className="absolute -bottom-1.5 -left-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
-                    <span className="absolute -bottom-1.5 -right-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
+                    {/* ─── A. THE ACRYLIC CERTIFICATE FRAME (TROPHY TOP) ─── */}
+                    <div
+                      onClick={() => setIsModalOpen(true)}
+                      className="group/frame relative w-full aspect-[16/10] sm:aspect-[16/9.5] rounded-2xl p-[3px] bg-gradient-to-br from-amber-400 via-slate-300 to-amber-600 dark:from-amber-400/80 dark:via-purple-500/40 dark:to-amber-600/80 shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_rgba(245,158,11,0.2)] cursor-pointer hover:scale-[1.02] transition-transform duration-500"
+                    >
+                      {/* Corner Metallic Clamps */}
+                      <span className="absolute -top-1.5 -left-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
+                      <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
+                      <span className="absolute -bottom-1.5 -left-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
+                      <span className="absolute -bottom-1.5 -right-1.5 w-4 h-4 rounded-sm bg-gradient-to-br from-amber-300 to-amber-600 shadow-md z-30 border border-amber-200" />
 
-                    {/* Inner Glass Enclosure */}
-                    <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-slate-950 flex items-center justify-center">
-                      {/* Certificate Image */}
-                      <img
-                        src={current.image}
-                        alt={current.title}
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover/frame:scale-105"
-                      />
+                      {/* Inner Glass Enclosure */}
+                      <div className="relative w-full h-full rounded-[14px] overflow-hidden bg-slate-950 flex items-center justify-center">
+                        {/* Certificate Image */}
+                        <img
+                          src={current.image}
+                          alt={current.title}
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover/frame:scale-105"
+                        />
 
-                      {/* Glass Diagonal Glare Sheen */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent pointer-events-none" />
+                        {/* Glass Diagonal Glare Sheen */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent pointer-events-none" />
 
-                      {/* Top Overlay Badge */}
-                      <div className="absolute top-3 left-3 z-20">
-                        <span className="px-3 py-1 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-widest text-white bg-black/70 backdrop-blur-md border border-white/20 shadow-md">
-                          {current.issuer}
-                        </span>
-                      </div>
-
-                      {/* Hover Overlay: Examine Certificate Prompt */}
-                      <div className="absolute inset-0 bg-black/60 backdrop-blur-xs opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 text-white z-30">
-                        <div className="w-11 h-11 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center shadow-lg text-amber-300">
-                          <FiMaximize2 className="w-5 h-5" />
+                        {/* Top Overlay Badge */}
+                        <div className="absolute top-3 left-3 z-20">
+                          <span className="px-3 py-1 rounded-full text-[10px] font-mono font-extrabold uppercase tracking-widest text-white bg-black/70 backdrop-blur-md border border-white/20 shadow-md">
+                            {current.issuer}
+                          </span>
                         </div>
-                        <span className="text-xs font-bold uppercase tracking-wider font-mono">
-                          Inspect Certificate
-                        </span>
+
+                        {/* Hover Overlay: Examine Certificate Prompt */}
+                        <div className="absolute inset-0 bg-black/60 backdrop-blur-xs opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 text-white z-30">
+                          <div className="w-11 h-11 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center shadow-lg text-amber-300">
+                            <FiMaximize2 className="w-5 h-5" />
+                          </div>
+                          <span className="text-xs font-bold uppercase tracking-wider font-mono">
+                            Inspect Certificate
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* ─── B. THE BRUSHED METAL CONNECTING STEM ─── */}
-                  <div className="relative w-8 h-10 sm:h-12 bg-gradient-to-b from-slate-400 via-slate-200 to-slate-500 dark:from-slate-600 dark:via-slate-400 dark:to-slate-700 shadow-md border-x border-slate-400/40 z-10 flex items-center justify-center">
-                    {/* Metal bracket highlights */}
-                    <div className="w-1.5 h-full bg-white/40 dark:bg-white/20 blur-[1px]" />
-                  </div>
+                    {/* ─── B. THE BRUSHED METAL CONNECTING STEM ─── */}
+                    <div className="relative w-8 h-10 sm:h-12 bg-gradient-to-b from-slate-400 via-slate-200 to-slate-500 dark:from-slate-600 dark:via-slate-400 dark:to-slate-700 shadow-md border-x border-slate-400/40 z-10 flex items-center justify-center">
+                      {/* Metal bracket highlights */}
+                      <div className="w-1.5 h-full bg-white/40 dark:bg-white/20 blur-[1px]" />
+                    </div>
 
-                  {/* ─── C. THE HEAVY ENGRAVED TROPHY PEDESTAL / BASE ─── */}
-                  <div className="relative w-full max-w-sm rounded-xl p-[2px] bg-gradient-to-r from-amber-600 via-amber-400 to-amber-700 shadow-2xl z-20">
-                    <div className="bg-[#ffffff] dark:bg-[#120a28] rounded-[10px] p-4 text-center border border-amber-500/30">
-                      {/* Gold Engraved Plaque Header */}
-                      <div className="flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400 mb-1">
-                        <FiAward className="w-4 h-4" />
-                        <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em]">
-                          AWARDED TO: {current.recipient || "IMTIAZ ALI"}
-                        </span>
-                      </div>
+                    {/* ─── C. THE HEAVY ENGRAVED TROPHY PEDESTAL / BASE ─── */}
+                    <div className="relative w-full max-w-sm rounded-xl p-[2px] bg-gradient-to-r from-amber-600 via-amber-400 to-amber-700 shadow-2xl z-20">
+                      <div className="bg-[#ffffff] dark:bg-[#120a28] rounded-[10px] p-4 text-center border border-amber-500/30">
+                        {/* Gold Engraved Plaque Header */}
+                        <div className="flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400 mb-1">
+                          <FiAward className="w-4 h-4" />
+                          <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em]">
+                            AWARDED TO: {current.recipient || "IMTIAZ ALI"}
+                          </span>
+                        </div>
 
-                      <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white truncate">
-                        {current.title}
-                      </h4>
+                        <h4 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white truncate">
+                          {current.title}
+                        </h4>
 
-                      <div className="flex items-center justify-center gap-3 mt-2 text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400">
-                        <span>Issued: {current.issueDate}</span>
-                        <span>•</span>
-                        <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                          <FiCheckCircle className="w-3 h-3" />
-                          <span>Verified</span>
-                        </span>
+                        <div className="flex items-center justify-center gap-3 mt-2 text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400">
+                          <span>Issued: {current.issueDate}</span>
+                          <span>•</span>
+                          <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                            <FiCheckCircle className="w-3 h-3" />
+                            <span>Verified</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-            {/* 4. GLOSSY SHOWROOM FLOOR WITH REFLECTION */}
-            <div className="relative h-20 bg-gradient-to-t from-slate-400/40 dark:from-black via-slate-300/20 dark:via-[#160f38]/60 to-transparent border-t border-slate-300 dark:border-white/[0.05] flex items-center justify-center z-10">
-              {/* Floor spotlight reflection pool */}
-              <div className="w-80 h-10 rounded-full bg-amber-400/15 dark:bg-amber-400/10 blur-xl pointer-events-none" />
-              {/* Pedestal shadow */}
-              <div className="absolute top-1 w-64 h-3 bg-black/30 dark:bg-black/80 blur-md rounded-full pointer-events-none" />
+              {/* 4. GLOSSY SHOWROOM FLOOR WITH REFLECTION */}
+              <div className="relative h-20 bg-gradient-to-t from-slate-400/40 dark:from-black via-slate-300/20 dark:via-[#160f38]/60 to-transparent border-t border-slate-300 dark:border-white/[0.05] flex items-center justify-center z-10">
+                {/* Floor spotlight reflection pool */}
+                <div className="w-80 h-10 rounded-full bg-amber-400/15 dark:bg-amber-400/10 blur-xl pointer-events-none" />
+                {/* Pedestal shadow */}
+                <div className="absolute top-1 w-64 h-3 bg-black/30 dark:bg-black/80 blur-md rounded-full pointer-events-none" />
+              </div>
             </div>
           </div>
         </div>
@@ -382,6 +388,6 @@ const Certifications = () => {
       </AnimatePresence>
     </section>
   );
-};;
+};
 
 export default Certifications;
