@@ -56,13 +56,24 @@ const Certifications = () => {
   const tabsContainerRef = useRef(null);
   const tabRefs = useRef([]);
 
-  // Auto-center active tab in horizontal dock when certificate changes
+  // Auto-center active tab strictly inside container WITHOUT scrolling the page
   useEffect(() => {
-    if (tabRefs.current[activeIdx]) {
-      tabRefs.current[activeIdx].scrollIntoView({
+    const container = tabsContainerRef.current;
+    const activeTab = tabRefs.current[activeIdx];
+    if (container && activeTab) {
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = activeTab.getBoundingClientRect();
+
+      // Only horizontal shift inside the container
+      const offset =
+        tabRect.left -
+        containerRect.left -
+        containerRect.width / 2 +
+        tabRect.width / 2;
+
+      container.scrollBy({
+        left: offset,
         behavior: "smooth",
-        inline: "center",
-        block: "nearest",
       });
     }
   }, [activeIdx]);
@@ -371,6 +382,6 @@ const Certifications = () => {
       </AnimatePresence>
     </section>
   );
-};
+};;
 
 export default Certifications;
